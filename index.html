@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Adeus Manchas | Dra. Rosana Vecchi</title>
+<meta name="description" content="O protocolo de 90 dias pra clarear melasma e mancha em casa. Sem laser caro, sem peeling agressivo e sem voltar tudo no primeiro verão." />
+<style>
+  :root{
+    --bg:#0c0a09;
+    --bg2:#12100e;
+    --line:#2c2620;
+    --gold:#c9a34c;
+    --gold-lt:#e3c47c;
+    --gold-dk:#6b5416;
+    --cream:#ece5d8;
+    --body:#cfc6b7;
+    --dim:#8d8477;
+    --red:#c9584c;
+    --max:1060px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);color:var(--body);overflow-x:hidden;
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    font-size:18px;line-height:1.68;-webkit-font-smoothing:antialiased;
+  }
+  /* granulado: mata o "gradientezinho limpo demais" */
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.05;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 22px;}
+  .col{max-width:660px;margin-left:auto;margin-right:auto;}
+  section{padding:74px 0;}
+  p{margin-bottom:20px;}
+  p:last-child{margin-bottom:0;}
+  strong,b{color:var(--cream);font-weight:700;}
+
+  h1,h2,h3,.sans,.btn,.kicker,.lbl{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  h1{font-size:clamp(2.05rem,4.6vw,3.15rem);font-weight:800;line-height:1.03;letter-spacing:-.035em;color:#fff;}
+  h2{font-size:clamp(1.6rem,3.4vw,2.35rem);font-weight:800;line-height:1.08;letter-spacing:-.03em;color:#fff;}
+  h3{font-size:1.06rem;font-weight:700;letter-spacing:-.01em;color:var(--cream);}
+
+  .kicker{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px;}
+  .mk{background:linear-gradient(transparent 58%,rgba(201,163,76,.34) 58%);padding:0 2px;color:#fff;font-weight:700;}
+  .cut{text-decoration:line-through;text-decoration-thickness:2px;color:var(--dim);}
+  .hand{
+    font-family:"Bradley Hand","Segoe Script","Brush Script MT",cursive;
+    color:var(--gold);font-size:1.12rem;line-height:1.4;
+  }
+  .rule{width:52px;height:2px;background:var(--gold);margin:0 0 24px;}
+
+  /* botão: sólido, sombra dura, nada de pílula com brilho */
+  .btn{
+    display:inline-block;background:var(--gold);color:#140f06;font-weight:800;font-size:1rem;
+    letter-spacing:.01em;text-decoration:none;padding:18px 34px;border-radius:3px;cursor:pointer;
+    box-shadow:5px 5px 0 var(--gold-dk);transition:transform .1s ease,box-shadow .1s ease;
+  }
+  .btn:hover{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--gold-dk);}
+  .btn:active{transform:translate(5px,5px);box-shadow:0 0 0 var(--gold-dk);}
+  .btn.lg{font-size:1.1rem;padding:21px 40px;}
+  .btn.full{display:block;text-align:center;box-shadow:0 4px 0 var(--gold-dk);}
+  .btn.full:hover{transform:translateY(2px);box-shadow:0 2px 0 var(--gold-dk);}
+  .under{display:block;font-size:.86rem;color:var(--dim);margin-top:14px;font-family:inherit;}
+  .cta{margin-top:34px;}
+
+  /* topo */
+  .strip{background:var(--gold);color:#140f06;text-align:center;font-size:.8rem;font-weight:700;
+         padding:8px 16px;letter-spacing:.02em;font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;}
+  header{position:sticky;top:0;z-index:60;background:rgba(12,10,9,.93);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px;gap:14px;}
+  .mark{font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;font-weight:800;
+        font-size:1rem;letter-spacing:.02em;color:#fff;}
+  .mark i{font-style:normal;color:var(--gold);}
+  .mark span{display:block;font-size:.6rem;letter-spacing:.22em;color:var(--dim);font-weight:600;text-transform:uppercase;margin-top:2px;}
+  .nav .btn{padding:11px 20px;font-size:.85rem;box-shadow:3px 3px 0 var(--gold-dk);}
+
+  /* hero */
+  .hero{padding-top:56px;padding-bottom:64px;border-bottom:1px solid var(--line);}
+  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:start;}
+  .hero .sub{font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+             font-size:clamp(1.1rem,2.2vw,1.38rem);font-weight:700;line-height:1.28;
+             letter-spacing:-.015em;color:var(--cream);margin:22px 0 24px;}
+  .hero p{font-size:1.05rem;}
+  .facts{margin-top:30px;padding-top:20px;border-top:1px solid var(--line);font-size:.9rem;color:var(--dim);}
+  .facts b{color:var(--gold);}
+  .shot{border:1px solid var(--line);background:var(--bg2);}
+  .tape{
+    position:absolute;top:-13px;left:26px;background:var(--gold);color:#140f06;font-size:.68rem;
+    font-weight:800;letter-spacing:.16em;padding:5px 12px;transform:rotate(-2deg);
+    font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+  }
+  .shot-wrap{position:relative;}
+
+  /* lista de dor: sem caixa, só filete */
+  .checks{list-style:none;margin:26px 0 0;}
+  .checks li{position:relative;padding:14px 0 14px 40px;border-bottom:1px solid var(--line);font-size:1.02rem;}
+  .checks li:first-child{border-top:1px solid var(--line);}
+  .checks li::before{
+    content:"✕";position:absolute;left:8px;top:14px;color:var(--red);font-weight:700;
+    font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+  }
+  .checks.ok li::before{content:"✓";color:var(--gold);}
+
+  /* numerada solta */
+  .nums{list-style:none;margin-top:8px;counter-reset:n;}
+  .nums li{counter-increment:n;position:relative;padding:22px 0 22px 62px;border-bottom:1px dotted var(--line);}
+  .nums li:last-child{border-bottom:none;}
+  .nums li::before{
+    content:counter(n,decimal-leading-zero);position:absolute;left:0;top:20px;color:var(--gold);
+    font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;font-weight:800;font-size:1.5rem;opacity:.55;
+  }
+  .nums h3{margin-bottom:4px;}
+  .nums p{font-size:.99rem;margin:0;color:var(--body);}
+
+  .quote{
+    font-size:clamp(1.2rem,2.6vw,1.55rem);font-style:italic;color:var(--cream);line-height:1.4;
+    border-left:2px solid var(--gold);padding-left:26px;margin:44px 0;max-width:660px;
+  }
+
+  /* fases: escadinha, não grid simétrico */
+  .step{max-width:640px;padding:30px 0;border-bottom:1px solid var(--line);}
+  .step:last-child{border-bottom:none;}
+  .step:nth-child(2){margin-left:6%;}
+  .step:nth-child(3){margin-left:12%;}
+  .step .lbl{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);font-weight:700;}
+  .step h3{font-size:1.5rem;font-weight:800;color:#fff;margin:6px 0 10px;letter-spacing:-.02em;}
+  .step p{margin:0;}
+
+  /* bônus */
+  .plus{list-style:none;}
+  .plus li{padding:18px 0;border-bottom:1px solid var(--line);display:flex;gap:20px;justify-content:space-between;align-items:baseline;}
+  .plus li:last-child{border-bottom:none;}
+  .plus .v{flex:none;color:var(--gold);font-weight:700;white-space:nowrap;
+           font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;font-size:.92rem;}
+  .plus p{margin:4px 0 0;font-size:.95rem;color:var(--dim);}
+
+  /* provas */
+  .wall{columns:2;column-gap:20px;margin-top:8px;}
+  .fb{break-inside:avoid;margin:0 0 20px;border-left:2px solid var(--line);padding:4px 0 4px 20px;font-size:.98rem;}
+  .fb .who{display:block;margin-top:8px;font-size:.85rem;color:var(--gold);}
+  .drop{
+    border:1px dashed rgba(201,163,76,.42);color:var(--dim);font-size:.85rem;padding:20px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:5px;line-height:1.5;
+  }
+  .drop small{font-size:.72rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px;}
+  .three .drop{aspect-ratio:4/3;}
+
+  /* oferta */
+  .price-box{max-width:100%;border:1px solid var(--gold);background:var(--bg2);padding:38px 32px;}
+  .price-box .lbl{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .incl{list-style:none;margin:22px 0 26px;}
+  .incl li{padding:7px 0 7px 26px;position:relative;font-size:.99rem;}
+  .incl li::before{content:"→";position:absolute;left:0;color:var(--gold);}
+  .amount{margin:4px 0 8px;}
+  .amount .big{font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+                font-size:clamp(2.3rem,6vw,3.1rem);font-weight:800;color:#fff;letter-spacing:-.04em;line-height:1;}
+  .amount .cash{display:block;font-size:.95rem;color:var(--dim);margin-top:10px;}
+  .fineprint{font-size:.82rem;color:var(--dim);margin-top:14px;}
+
+  /* garantia */
+  .warranty{display:grid;grid-template-columns:118px 1fr;gap:28px;align-items:start;max-width:760px;}
+  .stamp{
+    width:118px;height:118px;border:2px solid var(--gold);border-radius:50%;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gold);
+    transform:rotate(-7deg);font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+  }
+  .stamp b{font-size:2.1rem;font-weight:800;line-height:1;}
+  .stamp span{font-size:.62rem;letter-spacing:.18em;font-weight:700;margin-top:3px;}
+
+  /* quem sou */
+  .me{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:start;}
+  .sign{font-family:"Bradley Hand","Segoe Script","Brush Script MT",cursive;font-size:1.6rem;color:var(--gold);margin-top:22px;}
+
+  /* faq */
+  details{border-bottom:1px solid var(--line);padding:18px 0;}
+  details:first-of-type{border-top:1px solid var(--line);}
+  summary{cursor:pointer;list-style:none;font-weight:700;color:var(--cream);display:flex;
+          justify-content:space-between;gap:16px;align-items:flex-start;
+          font-family:-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;font-size:1rem;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";color:var(--gold);font-size:1.35rem;line-height:1;flex:none;}
+  details[open] summary::after{content:"–";}
+  details p{margin-top:12px;font-size:.99rem;margin-bottom:0;}
+
+  .ps{max-width:640px;border-top:1px solid var(--line);margin-top:40px;padding-top:24px;}
+  .ps p{font-size:.99rem;}
+  .ps b{color:var(--gold);}
+
+  footer{border-top:1px solid var(--line);padding:40px 0 60px;font-size:.84rem;color:var(--dim);}
+  footer p{margin-bottom:10px;font-size:.84rem;}
+  footer a{color:var(--gold);}
+  .legal{font-size:.78rem;line-height:1.6;margin-top:16px;}
+
+  .barra{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;background:rgba(12,10,9,.96);
+         border-top:1px solid var(--line);padding:11px 16px;}
+
+  @media (max-width:900px){
+    body{font-size:17px;}
+    .hero-grid,.me{grid-template-columns:1fr;gap:34px;}
+    .shot-wrap{margin-top:6px;}
+    .shot-wrap .shot{aspect-ratio:3/2 !important;}
+    .me .shot{aspect-ratio:3/2 !important;}
+    .wall{columns:1;}
+    .three{grid-template-columns:1fr;}
+    .warranty{grid-template-columns:1fr;justify-items:start;}
+    .step:nth-child(2),.step:nth-child(3){margin-left:0;}
+    .nav .btn{display:none;}
+    section{padding:56px 0;}
+    .barra{display:block;}
+    body{padding-bottom:74px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="strip">Turma aberta &nbsp;·&nbsp; acesso na hora &nbsp;·&nbsp; condição promocional</div>
+
+<header>
+  <div class="wrap nav">
+    <div class="mark">ADEUS <i>MANCHAS</i><span>Dra. Rosana Vecchi</span></div>
+    <a class="btn" href="#oferta">Quero começar</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Melasma, mancha de sol, marca de acne</span>
+      <h1>Você não tem mancha<br>porque tomou sol.</h1>
+      <p class="sub">Você tem mancha porque <span class="mk">ninguém nunca te explicou o que está acontecendo debaixo da sua pele.</span></p>
+
+      <p>O Adeus Manchas é um protocolo de 90 dias que você faz em casa, no seu banheiro, com o que cabe no seu bolso.</p>
+      <p>Sem laser de 800 reais a sessão. Sem peeling que descasca sua cara duas semanas antes do casamento. E sem aquela história de clarear no inverno pra escurecer tudo de novo no primeiro sol de novembro.</p>
+
+      <div class="cta">
+        <a class="btn lg" href="#oferta">QUERO O PROTOCOLO</a>
+        <span class="under">Acesso na hora. Assiste pelo celular. 30 dias de garantia.</span>
+      </div>
+
+      <p class="facts">Mais de <b>[X.XXX]</b> mulheres já fizeram &nbsp;·&nbsp; <b>[XX] anos</b> de consultório &nbsp;·&nbsp; conteúdo <b>100% gravado</b></p>
+    </div>
+
+    <div class="shot-wrap">
+      <span class="tape">SUA FOTO AQUI</span>
+      <div class="shot drop" style="aspect-ratio:4/5;">
+        <small>trocar</small>
+        Foto sua, de jaleco ou no consultório.<br>Ou o mockup do curso no celular.
+        <b>assets/hero.jpg</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOR -->
+<section>
+  <div class="wrap col">
+    <div class="rule"></div>
+    <h2>Deixa eu adivinhar.</h2>
+
+    <ul class="checks">
+      <li>Você comprou o clareador que a moça do Instagram jurou que era milagre. Usou três semanas. Parou porque ardeu.</li>
+      <li>Fez peeling. Clareou. Voltou. Mais escura que antes.</li>
+      <li>Tem uma gaveta com sete produtos pela metade e nenhum deles conversa com o outro.</li>
+      <li>Passa protetor às sete da manhã e acha que tá protegida até a hora do jantar.</li>
+      <li>Já ouviu "nossa, você tá cansada?" quando era só a mancha.</li>
+      <li>E já pensou em desistir. Tipo, aceitar de vez e parar de gastar.</li>
+    </ul>
+
+    <p class="hand" style="margin:26px 0 0;">isso aqui eu ouço todo dia, sentada na frente de alguém</p>
+
+    <p style="margin-top:30px;">Olha, eu vou te falar uma coisa que talvez ninguém tenha te falado ainda: <strong>o problema não é você.</strong></p>
+    <p>Não é preguiça. Não é falta de disciplina. Você fez o que te mandaram fazer. O detalhe é que te venderam <em>produto</em> quando o que você precisava era de <span class="mk">ordem</span>.</p>
+  </div>
+</section>
+
+<!-- VILÃO -->
+<section style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap col">
+    <span class="kicker">A parte que muda tudo</span>
+    <h2>Sua mancha não é problema de cor.<br>É problema de inflamação.</h2>
+
+    <p style="margin-top:22px;">O melanócito, que é a célula que fabrica o pigmento da sua pele, é uma célula medrosa. Sempre que ela leva um susto, reage do único jeito que sabe: fabricando mais pigmento.</p>
+    <p>Calor é susto. Atrito é susto. Ácido demais é susto.</p>
+    <p>Sacou? Por isso tratamento bravo escurece em vez de clarear. Na maioria dos casos que chegam pra mim, a mulher não tá fazendo <em>pouco</em>. Ela tá fazendo <strong>bravo demais</strong>, e a pele dela responde do jeito que sabe responder.</p>
+
+    <p style="margin-top:34px;"><strong>Os quatro sustos que mantêm sua mancha viva:</strong></p>
+
+    <ol class="nums">
+      <li>
+        <h3>Calor, não só sol</h3>
+        <p>Fogão, secador, sauna, janela do carro no trânsito. O infravermelho acende o pigmento mesmo com você na sombra, de guarda-sol, jurando que não tomou sol nenhum.</p>
+      </li>
+      <li>
+        <h3>Barreira quebrada</h3>
+        <p>Pele fina, ardida, repuxando de tanto ácido. Pele nesse estado produz mais melanina, não menos. Clarear começa por acalmar, e essa é a etapa que todo mundo pula.</p>
+      </li>
+      <li>
+        <h3>Protetor de mentirinha</h3>
+        <p>Uma aplicação de manhã cobre umas duas horas do seu dia. As outras dez sua mancha passa no sol descoberta. Quantidade e reaplicação valem mais que o número do FPS no rótulo.</p>
+      </li>
+      <li>
+        <h3>Gatilho ainda ligado</h3>
+        <p>Anticoncepcional, gestação, tireoide desregulada. Com o gatilho aceso, qualquer clareamento é aluguel: você paga todo mês e nunca fica seu.</p>
+      </li>
+    </ol>
+
+    <p class="quote">Enquanto você tratar a cor e ignorar a causa, você vai clarear no inverno e escurecer no verão. Todo ano. A vida inteira.</p>
+  </div>
+</section>
+
+<!-- FASES -->
+<section>
+  <div class="wrap col">
+    <div>
+      <span class="kicker">Como funciona</span>
+      <h2>Três fases, nessa ordem.<br>A ordem é o segredo.</h2>
+      <p style="margin-top:20px;">Não é uma lista de produtos. Lista de produto você acha de graça no Google e é justamente por isso que ela não funciona.</p>
+    </div>
+
+    <div style="margin-top:26px;">
+      <div class="step">
+        <span class="lbl">Dias 1 a 30</span>
+        <h3>Apagar o incêndio</h3>
+        <p>Antes de clarear qualquer coisa, a gente desliga a inflamação e reconstrói a barreira. Nessa fase você vai suspender coisas, e vai estranhar. Mas é aqui que a sua mancha para de ser reabastecida todo dia. É a fase que ninguém tem paciência de fazer, e é por isso que a mancha de todo mundo volta.</p>
+      </div>
+      <div class="step">
+        <span class="lbl">Dias 31 a 60</span>
+        <h3>Clarear</h3>
+        <p>Agora sim entram os ativos, na concentração certa, no horário certo, combinados de um jeito que eles se somam em vez de se anularem. Rotina da manhã e rotina da noite, passo a passo, sem você ter que adivinhar nada.</p>
+      </div>
+      <div class="step">
+        <span class="lbl">Dias 61 a 90, e o resto da vida</span>
+        <h3>Trancar a porta</h3>
+        <p>A parte que separa quem clareou de quem <strong>continuou clara</strong>. Manutenção, verão, praia, gravidez, e o plano de resgate pra quando a mancha der o primeiro sinal de que quer voltar. Porque ela vai dar. E você vai saber o que fazer.</p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a class="btn lg" href="#oferta">COMEÇAR PELA FASE 1</a>
+      <span class="under">Você já começa hoje, o acesso cai no seu e-mail em minutos.</span>
+    </div>
+  </div>
+</section>
+
+<!-- MÓDULOS -->
+<section style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap col">
+    <span class="kicker">O que tem dentro</span>
+    <h2>Seis módulos curtos.<br>Nada de aula de duas horas pra dizer o óbvio.</h2>
+    <p style="margin-top:20px;">Vídeo curto, direto, pra você assistir no celular enquanto passa o creme.</p>
+
+    <ol class="nums" style="margin-top:20px;">
+      <li><h3>Que mancha é a sua?</h3><p>Melasma, melanose solar, mancha de acne e mancha pós-inflamatória são quatro coisas diferentes e respondem a tratamentos diferentes. Em oito minutos, com o teste guiado, você descobre a sua. Só isso já evita meses de tratamento errado.</p></li>
+      <li><h3>Os 30 primeiros dias</h3><p>O passo a passo pra desinflamar e reconstruir a barreira, com a lista do que você precisa parar de usar hoje.</p></li>
+      <li><h3>A rotina de clareamento</h3><p>Manhã e noite, na ordem exata. O que usar, quanto usar, o que nunca misturar, e como saber que tá funcionando antes de dar pra ver no espelho.</p></li>
+      <li><h3>Protetor solar de verdade</h3><p>Quantidade, reaplicação sem borrar a maquiagem, luz visível, calor. Esse módulo sozinho já muda o seu resultado, e é o mais curto de todos.</p></li>
+      <li><h3>Manutenção e recaída</h3><p>Verão, praia, viagem, gestação. Como atravessar sem perder o que você conquistou, e o que fazer quando escurecer de novo.</p></li>
+      <li><h3>Quando é hora de procurar médico</h3><p>Os sinais que pedem avaliação presencial, o que pedir na consulta, o que recusar, e como não sair de lá com um pacote de dez sessões que você não precisava.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- BÔNUS -->
+<section>
+  <div class="wrap col">
+    <div class="rule"></div>
+    <h2>E vai junto:</h2>
+
+    <ul class="plus" style="margin-top:24px;">
+      <li>
+        <div><h3>Lista de compras inteligente</h3><p>O que comprar em três faixas de preço, de farmácia a manipulado, com as alternativas baratas que entregam o mesmo ativo.</p></div>
+        <span class="v">R$ [197]</span>
+      </li>
+      <li>
+        <div><h3>Guia dos rótulos</h3><p>Aprende a ler o rótulo e nunca mais compra promessa. Se o ativo tá no fim da lista, ele não vai fazer nada por você.</p></div>
+        <span class="v">R$ [147]</span>
+      </li>
+      <li>
+        <div><h3>Cardápio anti-inflamatório</h3><p>O que comer e o que reduzir pra não alimentar a inflamação por dentro. Comida de brasileiro, sem dieta impossível.</p></div>
+        <span class="v">R$ [97]</span>
+      </li>
+      <li>
+        <div><h3>Diário de 90 dias</h3><p>PDF pra imprimir e registrar as fotos. O olho não percebe o que melhora devagar. O papel percebe.</p></div>
+        <span class="v">R$ [67]</span>
+      </li>
+    </ul>
+
+    <p style="margin-top:26px;">Só de bônus dá <span class="cut">R$ [508]</span>. Vai junto, sem cobrar nada a mais.</p>
+  </div>
+</section>
+
+<!-- PROVA -->
+<section style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap col">
+    <span class="kicker">Quem já fez</span>
+    <h2>O que elas mandam depois.</h2>
+    <p style="margin-top:18px;font-size:.92rem;color:var(--dim);">Cole aqui os depoimentos e os antes e depois reais. Resultado varia de pessoa pra pessoa.</p>
+
+    <div class="wall" style="margin-top:26px;">
+      <div class="fb drop"><small>colar depoimento real</small>texto ou print da aluna<span class="who">Nome, cidade</span></div>
+      <div class="fb drop"><small>colar depoimento real</small>texto ou print da aluna<span class="who">Nome, cidade</span></div>
+      <div class="fb drop"><small>colar depoimento real</small>texto ou print da aluna<span class="who">Nome, cidade</span></div>
+      <div class="fb drop"><small>colar depoimento real</small>texto ou print da aluna<span class="who">Nome, cidade</span></div>
+    </div>
+
+    <div class="three">
+      <div class="drop"><small>antes e depois 1</small>assets/ad-1.jpg</div>
+      <div class="drop"><small>antes e depois 2</small>assets/ad-2.jpg</div>
+      <div class="drop"><small>antes e depois 3</small>assets/ad-3.jpg</div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTRO -->
+<section>
+  <div class="wrap col">
+    <div class="rule"></div>
+    <h2>Isso aqui não é pra todo mundo.</h2>
+    <p style="margin-top:20px;">Prefiro te dizer agora do que você comprar, se frustrar e pedir reembolso na semana que vem.</p>
+
+    <p style="margin-top:28px;"><strong>É pra você se:</strong></p>
+    <ul class="checks ok">
+      <li>Você tem melasma, mancha de sol ou marca de acne e tá cansada de tentar no escuro.</li>
+      <li>Você quer entender o porquê, não só receber uma lista de produto.</li>
+      <li>Você topa dez minutos de manhã e dez à noite, por noventa dias.</li>
+      <li>Você prefere gastar uma vez com conhecimento a gastar todo mês com produto errado.</li>
+    </ul>
+
+    <p style="margin-top:32px;"><strong>Não é pra você se:</strong></p>
+    <ul class="checks">
+      <li>Você quer resultado em uma semana. Pele tem tempo biológico e ninguém dobra isso, nem eu.</li>
+      <li>Você não pretende usar protetor solar. Aí não tem protocolo que segure, nem o meu.</li>
+      <li>Você quer que alguém passe o creme por você. Aqui o método é meu, mas a mão é sua.</li>
+      <li>Você espera trocar o médico por um curso. Não é isso que eu tô te vendendo.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section id="oferta" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap col">
+    <div>
+      <span class="kicker">A conta</span>
+      <h2>Uma sessão de laser custa mais que o protocolo inteiro.</h2>
+      <p style="margin-top:20px;">E a sessão acaba quando você levanta da maca. O protocolo fica com você pros verões que ainda vão vir.</p>
+    </div>
+
+    <div class="price-box" style="margin-top:34px;">
+      <span class="lbl">Adeus Manchas, completo</span>
+
+      <ul class="incl">
+        <li>Os 6 módulos em vídeo, do diagnóstico à manutenção</li>
+        <li>O protocolo dia a dia das 3 fases</li>
+        <li>Lista de compras inteligente</li>
+        <li>Guia dos rótulos</li>
+        <li>Cardápio anti-inflamatório</li>
+        <li>Diário de 90 dias pra imprimir</li>
+        <li>Acesso por [12 meses], com as atualizações do período</li>
+      </ul>
+
+      <div class="amount">
+        <p style="margin:0 0 8px;font-size:.95rem;">De <span class="cut">R$ [1.497]</span> por</p>
+        <span class="big">12x R$ [49],[90]</span>
+        <span class="cash">ou R$ [497] à vista no Pix</span>
+      </div>
+
+      <a class="btn full lg" href="[COLE AQUI O LINK DO CHECKOUT]" style="margin-top:24px;">QUERO MEU PROTOCOLO</a>
+      <p class="fineprint">Cartão, Pix ou boleto. Compra segura. O acesso cai no seu e-mail em minutos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section>
+  <div class="wrap warranty">
+    <div class="stamp"><b>30</b><span>DIAS</span></div>
+    <div>
+      <h2 style="font-size:clamp(1.4rem,3vw,1.95rem);">O risco é meu, não seu.</h2>
+      <p style="margin-top:16px;">Entra, assiste tudo, baixa todos os bônus, começa a fase 1. Se em 30 dias você achar que não era pra você, me manda uma mensagem e eu devolvo cada centavo.</p>
+      <p>Você não precisa explicar o motivo. Não tem formulário de sete páginas, não tem ninguém tentando te convencer do contrário, e você fica com os bônus.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUEM SOU -->
+<section style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap me">
+    <div class="shot drop" style="aspect-ratio:4/5;">
+      <small>trocar</small>
+      Foto sua<br><b>assets/rosana.jpg</b>
+    </div>
+    <div>
+      <span class="kicker">Quem tá falando com você</span>
+      <h2>Dra. Rosana Vecchi</h2>
+      <p style="margin-top:18px;">Sou médica, [CRM 00000], e passei os últimos [XX] anos tratando pele em consultório e formando profissionais de estética Brasil afora.</p>
+      <p>Eu montei esse curso por cansaço, pra ser honesta. Cansei de ver a mesma cena: mulher inteligente, caprichosa, gastando uma fortuna e piorando a própria mancha porque seguiu a ordem errada. Sempre a ordem errada.</p>
+      <p>Aí eu peguei o que eu explico todo santo dia dentro do consultório e organizei em protocolo.</p>
+      <p>O Adeus Manchas é isso. É a consulta que você não conseguiu marcar, virada em método que você executa em casa.</p>
+      <p class="sign">Rosana</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap col">
+    <div class="rule"></div>
+    <h2>Antes que você me pergunte.</h2>
+
+    <div style="margin-top:26px;">
+      <details open>
+        <summary>Funciona pra melasma? Dizem que melasma não tem cura.</summary>
+        <p>E é verdade, não tem. Melasma é crônico, você controla, não cura. Quem te promete cura tá te enganando na sua cara. O que o protocolo faz é clarear o que dá pra clarear e, principalmente, te ensinar a manter, pra você sair do ciclo de clarear no inverno e escurecer no verão.</p>
+      </details>
+      <details>
+        <summary>Em quanto tempo eu vejo diferença?</summary>
+        <p>A maioria começa a notar entre a sexta e a décima semana, e o resultado que aparece na foto vem depois dos 90 dias completos. Varia com o tipo de mancha, com a sua pele e com a sua constância. Se alguém te prometer duas semanas, desconfia.</p>
+      </details>
+      <details>
+        <summary>Vou ter que comprar produto caro?</summary>
+        <p>Não. A lista de compras traz opção em três faixas de preço, com bastante coisa de farmácia. O que você não vai mais fazer é comprar sete produtos que se anulam.</p>
+      </details>
+      <details>
+        <summary>Tô grávida (ou amamentando). Posso fazer?</summary>
+        <p>Existe um caminho seguro pra esse período e ele tá no curso, com os ativos que você deve evitar bem sinalizados. Ainda assim, confirma com o seu obstetra antes de começar.</p>
+      </details>
+      <details>
+        <summary>Isso substitui ir no dermatologista?</summary>
+        <p>Não, e nem quer substituir. O curso é educativo, ele organiza sua rotina e te ensina a cuidar da sua pele. Diagnóstico e prescrição são atos médicos individuais. O módulo 6 é justamente pra você reconhecer quando precisa de uma avaliação presencial.</p>
+      </details>
+      <details>
+        <summary>Quanto tempo por dia?</summary>
+        <p>Uns dez minutos de manhã e dez à noite. As aulas são curtas e você assiste no celular, no seu ritmo.</p>
+      </details>
+      <details>
+        <summary>Por quanto tempo eu tenho acesso?</summary>
+        <p>[12 meses] a partir da compra, com as atualizações do período inclusas. Os PDFs você baixa e ficam seus pra sempre.</p>
+      </details>
+      <details>
+        <summary>E se eu não gostar?</summary>
+        <p>Você tem 30 dias pra pedir o dinheiro de volta, sem justificar nada. E fica com os bônus.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FECHO -->
+<section style="border-top:1px solid var(--line);">
+  <div class="wrap col">
+    <h2>Daqui a 90 dias você vai ter uma pele diferente.<br>Ou a mesma mancha e mais três produtos na gaveta.</h2>
+    <p style="margin-top:22px;">As duas opções custam dinheiro. Só uma te devolve o espelho.</p>
+
+    <div class="cta">
+      <a class="btn lg" href="#oferta">COMEÇAR HOJE</a>
+      <span class="under">Acesso na hora. 30 dias de garantia, sem justificar nada.</span>
+    </div>
+
+    <div class="ps">
+      <p><b>P.S.</b> Se você chegou até aqui e ainda tá na dúvida, volta e lê a parte da garantia. Você tem 30 dias pra ver por dentro. O único jeito de continuar com a mancha é continuar sem fazer nada.</p>
+      <p><b>P.S.2</b> O valor dessa página é promocional. Quando subir, quem entrou antes continua pagando o que pagou. Quem ficou pensando, não.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap col">
+    <p><strong>Adeus Manchas</strong> · Dra. Rosana Vecchi · CNPJ [00.000.000/0001-00]</p>
+    <p><a href="#">Política de privacidade</a> · <a href="#">Termos de uso</a> · <a href="#">Falar com a gente</a></p>
+    <p class="legal">Este curso tem finalidade educativa e informativa. Ele não faz diagnóstico, não prescreve medicamento e não substitui consulta, avaliação ou acompanhamento médico individualizado. Os resultados variam conforme o tipo de mancha, as características da pele, a constância na aplicação do protocolo e fatores individuais, portanto não há garantia de resultado. Se você tem uma lesão que mudou de cor, de tamanho ou de formato, procure um médico presencialmente.</p>
+    <p style="margin-top:16px;">© 2026. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<div class="barra">
+  <a class="btn full" href="#oferta">QUERO MEU PROTOCOLO · 12x R$ [49],[90]</a>
+</div>
+
+<script>
+  document.querySelectorAll('details').forEach(function(d){
+    d.addEventListener('toggle', function(){
+      if(!d.open) return;
+      document.querySelectorAll('details').forEach(function(o){ if(o!==d) o.open=false; });
+    });
+  });
+  var alvo=document.getElementById('oferta'), barra=document.querySelector('.barra');
+  if(alvo&&barra&&'IntersectionObserver' in window){
+    barra.style.transition='transform .25s ease';
+    new IntersectionObserver(function(e){
+      barra.style.transform=e[0].isIntersecting?'translateY(120%)':'translateY(0)';
+    },{threshold:.2}).observe(alvo);
+  }
+</script>
+</body>
+</html>
