@@ -10,126 +10,219 @@
 <meta name="description" content="Assista à aula e entenda por que sua mancha volta todo verão. O protocolo de 90 dias pra clarear melasma e mancha em casa." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#0c0a09;
-    --bg2:#12100e;
+    --bg:#0b0908;
+    --bg2:#141110;
+    --card:#17130f;
     --line:#2c2620;
-    --gold:#c9a34c;
-    --gold-dk:#6b5416;
-    --cream:#ece5d8;
-    --body:#cfc6b7;
-    --dim:#8d8477;
-    --max:860px;
-    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --gold:#d4aa50;
+    --gold-lt:#f1d48a;
+    --gold-dk:#7a5d18;
+    --cream:#f1ebdf;
+    --body:#d2c9ba;
+    --dim:#958b7d;
+    --ok:#7fbf7a;
+    --no:#d0675b;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+    --grad:linear-gradient(135deg,#f1d48a 0%,#d4aa50 45%,#a8801f 100%);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     background:var(--bg);color:var(--body);overflow-x:hidden;
-    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
-    font-size:18px;line-height:1.68;-webkit-font-smoothing:antialiased;
+    font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;
   }
   /* granulado */
   body::after{
-    content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.05;
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.04;
     background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   }
   a{color:inherit;}
-  .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 18px;}
-  p{margin-bottom:18px;}
+  img{max-width:100%;display:block;}
+  .wrap{width:100%;max-width:1040px;margin:0 auto;padding:0 18px;}
+  .narrow{max-width:780px;}
+  section{padding:76px 0;}
+  p{margin-bottom:16px;}
   p:last-child{margin-bottom:0;}
-  strong,b{color:var(--cream);font-weight:700;}
-  h1,h2,h3,.btn,.kicker{font-family:var(--sans);}
-  h1{font-size:clamp(1.7rem,4.4vw,2.7rem);font-weight:800;line-height:1.08;letter-spacing:-.035em;color:#fff;}
-  h2{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;line-height:1.12;letter-spacing:-.03em;color:#fff;}
-  .kicker{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px;}
-  .mk{background:linear-gradient(transparent 58%,rgba(201,163,76,.34) 58%);padding:0 2px;color:#fff;}
+  b,strong{color:var(--cream);font-weight:700;}
+  h1,h2{font-family:var(--serif);color:#fff;letter-spacing:-.01em;}
+  h1{font-size:clamp(1.85rem,4.6vw,3rem);font-weight:700;line-height:1.12;}
+  h2{font-size:clamp(1.6rem,3.6vw,2.4rem);font-weight:700;line-height:1.15;}
+  h3{font-size:1.05rem;font-weight:700;color:var(--cream);line-height:1.3;}
+  .gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic;}
+  .kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .center{text-align:center;}
+  .sec-head{max-width:680px;margin:0 auto 44px;text-align:center;}
+  .sec-head p{color:var(--dim);margin-top:14px;}
 
-  .strip{background:var(--gold);color:#140f06;text-align:center;font-size:.8rem;font-weight:700;
-         padding:8px 16px;letter-spacing:.02em;font-family:var(--sans);}
+  /* topo */
+  .strip{background:var(--grad);color:#1a1206;text-align:center;font-size:.78rem;font-weight:800;
+         padding:9px 16px;letter-spacing:.06em;text-transform:uppercase;}
   header{border-bottom:1px solid var(--line);}
-  .nav{display:flex;align-items:center;justify-content:center;height:62px;}
-  .mark{font-family:var(--sans);font-weight:800;font-size:1rem;letter-spacing:.02em;color:#fff;text-align:center;}
+  .nav{display:flex;align-items:center;justify-content:center;gap:12px;height:66px;}
+  .mono{width:34px;height:34px;flex:none;}
+  .mark{font-weight:900;font-size:.98rem;letter-spacing:.08em;color:#fff;line-height:1.1;}
   .mark i{font-style:normal;color:var(--gold);}
-  .mark span{display:block;font-size:.6rem;letter-spacing:.22em;color:var(--dim);font-weight:600;text-transform:uppercase;margin-top:2px;}
+  .mark span{display:block;font-size:.58rem;letter-spacing:.26em;color:var(--dim);font-weight:600;text-transform:uppercase;margin-top:3px;}
 
-  /* topo + vídeo */
-  .hero{padding:44px 0 56px;text-align:center;}
-  .hero .sub{font-size:1.05rem;color:var(--body);max-width:620px;margin:18px auto 30px;}
-  .video{position:relative;aspect-ratio:16/9;background:var(--bg2);border:1px solid var(--line);
-         box-shadow:0 30px 60px -30px rgba(0,0,0,.8);}
+  /* hero + vídeo */
+  .hero{padding:46px 0 64px;text-align:center;
+        background:radial-gradient(900px 420px at 50% 0%,rgba(212,170,80,.13),transparent 70%);}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(212,170,80,.4);background:rgba(212,170,80,.08);
+        color:var(--gold-lt);font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+        padding:7px 14px;border-radius:999px;margin-bottom:22px;}
+  .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(212,170,80,.18);}
+  .hero .sub{font-size:1.06rem;color:var(--body);max-width:640px;margin:20px auto 32px;}
+  .video{position:relative;aspect-ratio:16/9;max-width:860px;margin:0 auto;border-radius:14px;padding:2px;
+         background:var(--grad);box-shadow:0 0 0 1px rgba(212,170,80,.2),0 30px 80px -20px rgba(212,170,80,.28);}
+  .video-in{position:relative;width:100%;height:100%;border-radius:12px;overflow:hidden;background:#000;}
   .video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0;}
-  .video .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-             gap:8px;color:var(--dim);font-size:.9rem;border:1px dashed rgba(201,163,76,.42);}
-  .video .ph b{font-family:var(--sans);font-size:.72rem;letter-spacing:.16em;color:var(--gold);}
-  .sound{font-family:var(--sans);font-size:.82rem;color:var(--dim);margin-top:14px;}
+  .video .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+             color:var(--dim);font-size:.85rem;background:radial-gradient(circle at 50% 45%,#221b12,#000 70%);}
+  .play{width:78px;height:78px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;
+        box-shadow:0 0 0 10px rgba(212,170,80,.15);}
+  .play::after{content:"";border-left:22px solid #1a1206;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px;}
+  .sound{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-size:.8rem;color:var(--dim);}
 
-  /* botão */
+  /* oferta */
+  .offer{max-width:520px;margin:40px auto 0;background:linear-gradient(180deg,#1b1611,#120f0c);border:1px solid rgba(212,170,80,.45);
+         border-radius:18px;padding:30px 26px 24px;text-align:center;position:relative;
+         box-shadow:0 30px 70px -30px rgba(0,0,0,.9),inset 0 1px 0 rgba(241,212,138,.15);}
+  .offer .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad);color:#1a1206;
+              font-size:.66rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;padding:6px 14px;border-radius:999px;white-space:nowrap;}
+  .offer .what{font-size:.86rem;color:var(--dim);margin-bottom:8px;}
+  .price{font-weight:900;color:#fff;line-height:1;letter-spacing:-.03em;}
+  .price small{font-size:1.05rem;font-weight:700;color:var(--gold-lt);letter-spacing:0;vertical-align:.9em;margin-right:4px;}
+  .price .n{font-size:clamp(2.8rem,9vw,3.6rem);}
+  .cash{font-size:.95rem;color:var(--body);margin:10px 0 22px;}
   .btn{
-    display:inline-block;background:var(--gold);color:#140f06;font-weight:800;font-size:1.1rem;
-    letter-spacing:.01em;text-decoration:none;padding:21px 40px;border-radius:3px;cursor:pointer;
-    box-shadow:5px 5px 0 var(--gold-dk);transition:transform .1s ease,box-shadow .1s ease;
+    display:block;width:100%;text-align:center;background:var(--grad);color:#1a1206;font-weight:900;font-size:1.02rem;
+    letter-spacing:.03em;text-decoration:none;padding:20px 18px;border-radius:12px;cursor:pointer;
+    box-shadow:0 6px 0 var(--gold-dk),0 18px 40px -12px rgba(212,170,80,.55);
+    transition:transform .12s ease,box-shadow .12s ease;animation:pulso 2.4s ease-in-out infinite;
   }
-  .btn:hover{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--gold-dk);}
-  .btn:active{transform:translate(5px,5px);box-shadow:0 0 0 var(--gold-dk);}
-  .cta{margin-top:34px;}
-  .under{display:block;font-size:.86rem;color:var(--dim);margin-top:14px;}
-  .lead{font-size:1.08rem;color:var(--cream);margin-bottom:20px;}
+  .btn:hover{transform:translateY(2px);box-shadow:0 4px 0 var(--gold-dk),0 14px 30px -12px rgba(212,170,80,.55);}
+  .btn:active{transform:translateY(6px);box-shadow:0 0 0 var(--gold-dk);}
+  @keyframes pulso{0%,100%{scale:1;}50%{scale:1.025;}}
+  .trust{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-size:.76rem;color:var(--dim);}
+  .trust span{display:inline-flex;align-items:center;gap:6px;}
+  .trust svg{width:15px;height:15px;color:var(--gold);flex:none;}
+  .pay{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:.72rem;color:var(--dim);letter-spacing:.04em;}
   .late{display:none;}
-  .late.on{display:block;animation:sobe .5s ease both;}
-  @keyframes sobe{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+  .late.on{display:block;animation:sobe .6s ease both;}
+  @keyframes sobe{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
 
-  /* o que você leva */
-  .what{border-top:1px solid var(--line);padding:56px 0;}
-  .incl{list-style:none;margin:22px 0 0;}
-  .incl li{padding:12px 0 12px 30px;position:relative;border-bottom:1px solid var(--line);}
-  .incl li:first-child{border-top:1px solid var(--line);}
-  .incl li::before{content:"→";position:absolute;left:4px;color:var(--gold);}
+  /* benefícios */
+  .perks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .perk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 22px;}
+  .ico{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+       background:rgba(212,170,80,.1);border:1px solid rgba(212,170,80,.3);color:var(--gold);}
+  .ico svg{width:22px;height:22px;}
+  .perk p{font-size:.92rem;color:var(--dim);margin-top:6px;}
 
-  /* quem sou */
-  /* foto à esquerda (fundo), currículo no lado claro da foto */
+  /* fases */
+  .alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:f;}
+  .phase{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px 24px 26px;overflow:hidden;}
+  .phase::before{counter-increment:f;content:"0" counter(f);position:absolute;right:16px;top:6px;font-family:var(--serif);
+                 font-size:4.2rem;font-weight:700;color:rgba(212,170,80,.1);line-height:1;}
+  .phase .days{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+               color:#1a1206;background:var(--grad);padding:4px 10px;border-radius:999px;margin-bottom:14px;}
+  .phase h3{font-family:var(--serif);font-size:1.4rem;color:#fff;margin-bottom:8px;}
+  .phase p{font-size:.93rem;}
+
+  /* o que recebe */
+  .gets{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .gets li{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:.94rem;}
+  .gets li::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;margin-top:1px;
+    background:var(--gold) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a1206' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 12.5l4 4 8-9'/></svg>") center/14px no-repeat;}
+  .gets li.bonus{border-color:rgba(212,170,80,.45);background:linear-gradient(180deg,#1d1710,#16120e);}
+  .gets em{font-style:normal;font-size:.62rem;font-weight:900;letter-spacing:.14em;color:#1a1206;background:var(--grad);
+           padding:2px 7px;border-radius:5px;margin-right:6px;vertical-align:1px;}
+
+  /* para quem é */
+  .fit{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .fit-box{border-radius:16px;padding:28px 26px;border:1px solid var(--line);background:var(--card);}
+  .fit-box.yes{border-color:rgba(127,191,122,.35);}
+  .fit-box.no{border-color:rgba(208,103,91,.3);}
+  .fit-box h3{font-size:1.05rem;margin-bottom:14px;}
+  .fit-box ul{list-style:none;}
+  .fit-box li{position:relative;padding:9px 0 9px 30px;font-size:.93rem;border-top:1px solid var(--line);}
+  .fit-box li::before{position:absolute;left:0;top:9px;font-weight:900;}
+  .yes li::before{content:"✓";color:var(--ok);}
+  .no li::before{content:"✕";color:var(--no);}
+
+  /* quem sou: foto à esquerda (fundo), currículo no lado claro */
   .me{
-    display:flex;align-items:center;min-height:600px;padding:64px 0;color:#4a4238;
+    display:flex;align-items:center;min-height:620px;padding:64px 0;color:#4a4238;
     background:#efe9e2 url("https://blackfriday.drarosanaacademy.com.br/img/rosana-meio.jpg") left top/cover no-repeat;
   }
   .me .wrap{max-width:1200px;}
   .me-txt{margin-left:auto;width:min(47%,540px);}
-  .me .kicker{color:#a87b12;font-weight:800;}
+  .me .kicker{color:#a87b12;}
   .me h2{margin-bottom:16px;color:#17140f;}
   .me b{color:#17140f;}
-  .me p{font-size:.98rem;}
+  .me p{font-size:.96rem;}
   .cv{list-style:none;margin:16px 0 0;}
-  .cv li{padding:7px 0 7px 24px;position:relative;font-size:.92rem;line-height:1.5;border-bottom:1px solid rgba(23,20,15,.1);}
+  .cv li{padding:7px 0 7px 24px;position:relative;font-size:.9rem;line-height:1.5;border-bottom:1px solid rgba(23,20,15,.1);}
   .cv li:last-child{border-bottom:none;}
   .cv li::before{content:"—";position:absolute;left:0;color:#a87b12;}
   .me .sign{font-family:"Great Vibes",cursive;font-size:3rem;line-height:1.2;color:#a87b12;margin-top:22px;text-align:center;}
 
+  /* oferta final */
+  .final{background:radial-gradient(800px 400px at 50% 100%,rgba(212,170,80,.12),transparent 70%);}
+  .final .offer{margin-top:34px;}
 
-  .final{border-top:1px solid var(--line);padding:56px 0 64px;text-align:center;}
+  /* faq */
+  .faq{max-width:760px;margin:0 auto;}
+  details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;padding:0 20px;}
+  details[open]{border-color:rgba(212,170,80,.4);}
+  summary{cursor:pointer;list-style:none;font-weight:700;color:var(--cream);display:flex;justify-content:space-between;gap:16px;
+          align-items:center;padding:18px 0;font-size:.98rem;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";color:var(--gold);font-size:1.4rem;line-height:1;flex:none;transition:transform .2s;}
+  details[open] summary::after{transform:rotate(45deg);}
+  details p{padding-bottom:18px;font-size:.94rem;color:var(--body);}
 
+  /* rodapé */
   footer{border-top:1px solid var(--line);padding:20px 0 18px;font-size:.8rem;color:var(--dim);}
   footer .wrap{max-width:1100px;}
   .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
         padding-bottom:14px;border-bottom:1px solid var(--line);}
-  .foot .mark{text-align:left;}
-  .foot-links{display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--sans);font-size:.8rem;}
+  .foot-links{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.8rem;}
   .foot-links a{color:var(--body);text-decoration:none;}
   .foot-links a:hover{color:var(--gold);}
   .legal{font-size:.7rem;line-height:1.5;margin-top:12px;}
-  .copy{font-family:var(--sans);font-size:.7rem;margin-top:8px;}
+  .copy{font-size:.7rem;margin-top:8px;}
 
+  /* barra fixa no celular */
+  .barra{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;background:rgba(11,9,8,.96);
+         border-top:1px solid rgba(212,170,80,.35);padding:10px 14px;backdrop-filter:blur(8px);
+         transform:translateY(120%);transition:transform .3s ease;}
+  .barra.show{transform:none;}
+  .barra .btn{padding:15px 12px;font-size:.92rem;animation:none;box-shadow:0 4px 0 var(--gold-dk);}
+  .barra small{display:block;text-align:center;font-size:.7rem;color:var(--dim);margin-top:6px;}
+
+  @media (max-width:860px){
+    .perks,.phases{grid-template-columns:1fr;}
+    .gets,.fit{grid-template-columns:1fr;}
+  }
   @media (max-width:640px){
-    body{font-size:17px;}
+    body{font-size:16px;}
+    section{padding:58px 0;}
     .hero{padding-top:30px;}
-    .btn{display:block;text-align:center;padding:20px 18px;box-shadow:0 4px 0 var(--gold-dk);}
-    .btn:hover{transform:translateY(2px);box-shadow:0 2px 0 var(--gold-dk);}
-    /* no celular: foto em cima, texto embaixo */
+    .video{border-radius:10px;}
+    .video-in{border-radius:8px;}
+    .offer{padding:28px 18px 20px;}
     .me{display:block;min-height:0;padding:0 0 48px;background:#efe9e2;}
     .me::before{content:"";display:block;aspect-ratio:4/3;margin-bottom:34px;
       background:url("https://blackfriday.drarosanaacademy.com.br/img/rosana-meio.jpg") 18% top/cover no-repeat;}
     .me-txt{width:auto;}
+    .barra{display:block;}
+    body.tem-barra{padding-bottom:86px;}
   }
 </style>
 </head>
@@ -139,6 +232,7 @@
 
 <header>
   <div class="wrap nav">
+    <img class="mono" src="favicon.svg?v=4" alt="" />
     <div class="mark">ADEUS <i>MANCHAS</i><span>Dra. Rosana Vecchi</span></div>
   </div>
 </header>
@@ -146,38 +240,136 @@
 <!-- VSL -->
 <section class="hero">
   <div class="wrap">
-    <span class="kicker">Melasma, mancha de sol, marca de acne</span>
-    <h1>Por que a sua mancha clareia no inverno <span class="mk">e volta todo verão</span>.</h1>
+    <span class="pill">Melasma · mancha de sol · marca de acne</span>
+    <h1>Por que a sua mancha clareia no inverno<br><span class="gold">e volta todo verão?</span></h1>
     <p class="sub">Assista a esse vídeo até o final. Em poucos minutos você vai entender o que está acontecendo debaixo da sua pele, e o que fazer em casa pra resolver de vez.</p>
 
-    <!-- Cole aqui o código de incorporação do vídeo (YouTube, Vturb, Panda...) no lugar do .ph -->
+    <!-- Cole aqui o código de incorporação do vídeo (YouTube, Vturb, Panda...) dentro de .video-in, no lugar do .ph -->
     <div class="video" id="video">
-      <div class="ph"><b>SEU VÍDEO AQUI</b>Cole o código de incorporação da VSL</div>
+      <div class="video-in">
+        <div class="ph"><div class="play"></div>O vídeo vai aparecer aqui</div>
+      </div>
     </div>
-    <p class="sound">🔊 Confira se o som está ligado</p>
+    <span class="sound">🔊 Confira se o som do seu celular está ligado</span>
 
-    <div class="cta late" id="cta">
-      <p class="lead">Chega de tentar no escuro. Você pode começar a <b>Fase 1</b> ainda hoje.</p>
-      <a class="btn checkout" href="#">QUERO COMEÇAR MEU PROTOCOLO</a>
-      <span class="under">Acesso imediato no seu e-mail · assista pelo celular · compra 100% segura</span>
+    <div class="late" id="cta">
+      <div class="offer">
+        <span class="tag">Acesso completo</span>
+        <p class="what">Protocolo Adeus Manchas · 90 dias + bônus</p>
+        <div class="price"><small>12x</small><span class="n">R$ 20,25</span></div>
+        <p class="cash">ou <b>R$ 197</b> à vista</p>
+        <a class="btn checkout" href="#">QUERO COMEÇAR MEU PROTOCOLO</a>
+        <div class="trust">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Compra 100% segura</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Acesso imediato</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>Assista pelo celular</span>
+        </div>
+        <p class="pay">PIX &nbsp;·&nbsp; CARTÃO EM ATÉ 12X</p>
+      </div>
     </div>
   </div>
 </section>
 
 <div class="late" id="resto">
 
-<!-- O QUE VOCÊ LEVA -->
-<section class="what">
+<!-- BENEFÍCIOS -->
+<section>
   <div class="wrap">
-    <span class="kicker">O que você leva</span>
-    <h2>Um protocolo de 90 dias, em três fases, pra fazer em casa.</h2>
-    <ul class="incl">
-      <li><b>Fase 1 · Apagar o incêndio:</b> desinflamar e reconstruir a barreira da pele.</li>
-      <li><b>Fase 2 · Clarear:</b> rotina de manhã e de noite, na ordem exata, com os ativos certos.</li>
-      <li><b>Fase 3 · Trancar a porta:</b> manutenção pra mancha não voltar no verão.</li>
-      <li><b>Teste guiado:</b> descubra qual é a sua mancha antes de gastar com o tratamento errado.</li>
-      <li><b>Bônus:</b> lista de compras em três faixas de preço e guia pra ler rótulos.</li>
+    <div class="perks">
+      <div class="perk">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg></div>
+        <h3>Feito em casa</h3>
+        <p>No seu banheiro, sem laser de 800 reais a sessão e sem peeling que descasca a pele.</p>
+      </div>
+      <div class="perk">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>20 minutos por dia</h3>
+        <p>Uns dez minutos de manhã e dez à noite. Aulas curtas, direto ao ponto.</p>
+      </div>
+      <div class="perk">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-2 9H8L6 3H3"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg></div>
+        <h3>Cabe no seu bolso</h3>
+        <p>Lista de compras em três faixas de preço, com muita opção de farmácia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Como funciona</span>
+      <h2>Três fases, nessa ordem. <span class="gold">A ordem é o segredo.</span></h2>
+      <p>Não é uma lista de produtos. É um protocolo de 90 dias pra fazer em casa.</p>
+    </div>
+    <div class="phases">
+      <div class="phase">
+        <span class="days">Dias 1 a 30</span>
+        <h3>Apagar o incêndio</h3>
+        <p>Antes de clarear, a gente desliga a inflamação e reconstrói a barreira da pele. É aqui que a mancha para de ser reabastecida todo dia.</p>
+      </div>
+      <div class="phase">
+        <span class="days">Dias 31 a 60</span>
+        <h3>Clarear</h3>
+        <p>Entram os ativos certos, na concentração e no horário certos. Rotina da manhã e da noite, passo a passo.</p>
+      </div>
+      <div class="phase">
+        <span class="days">Dias 61 a 90</span>
+        <h3>Trancar a porta</h3>
+        <p>Manutenção pra verão, praia e gravidez, e o plano de resgate pra quando a mancha der sinal de que quer voltar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O QUE VOCÊ RECEBE -->
+<section>
+  <div class="wrap narrow">
+    <div class="sec-head">
+      <span class="kicker">O que você recebe</span>
+      <h2>Tudo o que você precisa, <span class="gold">em um só lugar.</span></h2>
+    </div>
+    <ul class="gets">
+      <li><span><b>Teste guiado:</b> descubra qual é a sua mancha antes de gastar com o tratamento errado.</span></li>
+      <li><span><b>Os 30 primeiros dias:</b> o passo a passo pra desinflamar e reconstruir a barreira.</span></li>
+      <li><span><b>Rotina de clareamento:</b> manhã e noite, na ordem exata, e o que nunca misturar.</span></li>
+      <li><span><b>Protetor solar de verdade:</b> quantidade, reaplicação, luz visível e calor.</span></li>
+      <li><span><b>Manutenção e recaída:</b> como atravessar o verão sem perder o que conquistou.</span></li>
+      <li><span><b>Quando procurar médico:</b> os sinais que pedem avaliação presencial.</span></li>
+      <li class="bonus"><span><em>BÔNUS</em><b>Lista de compras inteligente</b> em três faixas de preço.</span></li>
+      <li class="bonus"><span><em>BÔNUS</em><b>Guia dos rótulos:</b> nunca mais compre promessa.</span></li>
     </ul>
+  </div>
+</section>
+
+<!-- PARA QUEM É -->
+<section class="alt">
+  <div class="wrap narrow">
+    <div class="sec-head">
+      <span class="kicker">Seja honesta com você</span>
+      <h2>Isso aqui não é pra todo mundo.</h2>
+    </div>
+    <div class="fit">
+      <div class="fit-box yes">
+        <h3>É pra você se…</h3>
+        <ul>
+          <li>Tem melasma, mancha de sol ou marca de acne e cansou de tentar no escuro.</li>
+          <li>Quer entender o porquê, não só receber uma lista de produto.</li>
+          <li>Topa dez minutos de manhã e dez à noite, por noventa dias.</li>
+          <li>Prefere investir uma vez em conhecimento a gastar todo mês com produto errado.</li>
+        </ul>
+      </div>
+      <div class="fit-box no">
+        <h3>Não é pra você se…</h3>
+        <ul>
+          <li>Quer resultado em uma semana. Pele tem tempo biológico.</li>
+          <li>Não pretende usar protetor solar.</li>
+          <li>Quer que alguém passe o creme por você.</li>
+          <li>Espera trocar o médico por um curso.</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -201,13 +393,57 @@
   </div>
 </section>
 
-<!-- CTA FINAL -->
-<section class="final">
-  <div class="wrap">
-    <h2>Daqui a 90 dias você vai ter uma pele diferente.<br>Ou a mesma mancha e mais três produtos na gaveta.</h2>
-    <div class="cta">
+<!-- OFERTA FINAL -->
+<section class="final" id="oferta">
+  <div class="wrap center">
+    <h2>Daqui a 90 dias você vai ter uma pele diferente.<br><span class="gold">Ou a mesma mancha e mais três produtos na gaveta.</span></h2>
+    <div class="offer">
+      <span class="tag">Comece hoje</span>
+      <p class="what">Protocolo Adeus Manchas · 90 dias + bônus</p>
+      <div class="price"><small>12x</small><span class="n">R$ 20,25</span></div>
+      <p class="cash">ou <b>R$ 197</b> à vista</p>
       <a class="btn checkout" href="#">SIM, QUERO DAR ADEUS ÀS MANCHAS</a>
-      <span class="under">Acesso imediato. Você começa ainda hoje, no seu ritmo.</span>
+      <div class="trust">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Compra 100% segura</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Acesso imediato no e-mail</span>
+      </div>
+      <p class="pay">PIX &nbsp;·&nbsp; CARTÃO EM ATÉ 12X</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Dúvidas frequentes</span>
+      <h2>Ficou alguma dúvida?</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Funciona pra melasma? Dizem que melasma não tem cura.</summary>
+        <p>E é verdade, não tem. Melasma é crônico: você controla, não cura. O que o protocolo faz é clarear o que dá pra clarear e, principalmente, te ensinar a manter, pra você sair do ciclo de clarear no inverno e escurecer no verão.</p>
+      </details>
+      <details>
+        <summary>Em quanto tempo eu vejo diferença?</summary>
+        <p>A maioria começa a notar entre a sexta e a décima semana, e o resultado que aparece na foto vem depois dos 90 dias completos. Varia com o tipo de mancha, com a sua pele e com a sua constância.</p>
+      </details>
+      <details>
+        <summary>Vou ter que comprar produto caro?</summary>
+        <p>Não. A lista de compras traz opções em três faixas de preço, com bastante coisa de farmácia. O que você não vai mais fazer é comprar sete produtos que se anulam.</p>
+      </details>
+      <details>
+        <summary>Tô grávida (ou amamentando). Posso fazer?</summary>
+        <p>Existe um caminho seguro pra esse período e ele está no curso, com os ativos que você deve evitar bem sinalizados. Ainda assim, confirme com o seu obstetra antes de começar.</p>
+      </details>
+      <details>
+        <summary>Isso substitui ir ao dermatologista?</summary>
+        <p>Não, e nem quer substituir. O curso é educativo: organiza sua rotina e te ensina a cuidar da sua pele. Diagnóstico e prescrição são atos médicos individuais.</p>
+      </details>
+      <details>
+        <summary>Como eu recebo o acesso?</summary>
+        <p>Assim que o pagamento é aprovado, o acesso chega no seu e-mail. No PIX e no cartão, isso acontece em poucos minutos.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -230,10 +466,15 @@
   </div>
 </footer>
 
+<div class="barra" id="barra">
+  <a class="btn checkout" href="#">QUERO COMEÇAR · 12x R$ 20,25</a>
+  <small>Compra segura · acesso imediato</small>
+</div>
+
 <script>
   // ===== CONFIGURAÇÃO =====
   var CHECKOUT = 'https://payfast.greenn.com.br/189192/offer/YYt2pO';
-  var ATRASO_SEGUNDOS = 0; // tempo até o botão aparecer (ex.: 300 = 5 min, no momento da oferta no vídeo)
+  var ATRASO_SEGUNDOS = 0; // tempo até a oferta aparecer (ex.: 300 = 5 min, no momento da oferta no vídeo)
   // ========================
 
   // repassa os UTMs da URL pro checkout, pra não perder a origem da venda
@@ -241,14 +482,35 @@
   var link = CHECKOUT + (utm ? (CHECKOUT.indexOf('?') > -1 ? '&' : '?') + utm : '');
   document.querySelectorAll('.checkout').forEach(function(a){ a.href = link; });
 
+  var barra = document.getElementById('barra');
   function mostrar(){
     document.querySelectorAll('.late').forEach(function(el){ el.classList.add('on'); });
+    document.body.classList.add('tem-barra');
     try { localStorage.setItem('am_cta', '1'); } catch(e) {}
+    // barra fixa some quando um card de oferta está na tela
+    if ('IntersectionObserver' in window) {
+      var visiveis = new Set();
+      var obs = new IntersectionObserver(function(es){
+        es.forEach(function(e){ e.isIntersecting ? visiveis.add(e.target) : visiveis.delete(e.target); });
+        barra.classList.toggle('show', visiveis.size === 0);
+      }, { threshold: .15 });
+      document.querySelectorAll('.offer').forEach(function(o){ obs.observe(o); });
+    } else {
+      barra.classList.add('show');
+    }
   }
   var jaViu = false;
   try { jaViu = localStorage.getItem('am_cta') === '1'; } catch(e) {}
   if (jaViu || ATRASO_SEGUNDOS <= 0) mostrar();
   else setTimeout(mostrar, ATRASO_SEGUNDOS * 1000);
+
+  // FAQ: abre uma por vez
+  document.querySelectorAll('details').forEach(function(d){
+    d.addEventListener('toggle', function(){
+      if (!d.open) return;
+      document.querySelectorAll('details').forEach(function(o){ if (o !== d) o.open = false; });
+    });
+  });
 </script>
 
 </body>
