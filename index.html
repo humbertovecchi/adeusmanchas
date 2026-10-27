@@ -76,7 +76,8 @@
   .btn{display:block;width:100%;text-align:center;background:var(--gold);color:#16110a;font-weight:600;font-size:1.02rem;letter-spacing:.02em;
        text-decoration:none;padding:18px;border-radius:4px;cursor:pointer;transition:background .2s;}
   .btn:hover{background:#d8b25d;}
-  .trust{margin-top:16px;font-size:.8rem;color:var(--dim);}
+  .trust{margin-top:16px;font-size:.8rem;color:var(--dim);white-space:nowrap;}
+  @media (max-width:420px){ .trust{font-size:.68rem;} }
   .pay{margin-top:4px;font-size:.8rem;color:var(--dim);}
   .late{display:none;}
   .late.on{display:block;}
@@ -216,8 +217,7 @@
       <div class="offer">
         <p class="what">Protocolo Adeus Manchas<small>90 dias de protocolo e dois bônus</small></p>
         <a class="btn checkout" href="#">Quero começar o protocolo</a>
-        <p class="trust">Compra segura · acesso na hora · assista pelo celular</p>
-        <p class="pay">Pix ou cartão em até 12x</p>
+        <p class="trust">Compra segura · acesso na hora · Pix ou cartão em até 12x</p>
       </div>
     </div>
   </div>
@@ -372,8 +372,7 @@
     <div class="offer">
       <p class="what">Protocolo Adeus Manchas<small>90 dias de protocolo e dois bônus</small></p>
       <a class="btn checkout" href="#">Quero dar adeus às minhas manchas</a>
-      <p class="trust">Compra segura · acesso chega no seu e-mail</p>
-      <p class="pay">Pix ou cartão em até 12x</p>
+      <p class="trust">Compra segura · acesso na hora · Pix ou cartão em até 12x</p>
     </div>
   </div>
 </section>
