@@ -109,8 +109,12 @@
 
   /* quem sou */
   .me{display:flex;align-items:center;padding:130px 0 110px;color:#4a4238;
-      background:linear-gradient(180deg,var(--bg) 0,rgba(15,13,12,0) 110px,rgba(15,13,12,0) calc(100% - 110px),var(--bg) 100%),
-                 url("https://blackfriday.drarosanaacademy.com.br/img/rosana-meio.jpg") left 0 top 60px/100% auto no-repeat,#e9e3dc;}
+      background:
+        linear-gradient(180deg,var(--bg) 0,rgba(15,13,12,.85) 25px,rgba(15,13,12,.55) 60px,rgba(15,13,12,.25) 100px,rgba(15,13,12,.07) 135px,rgba(15,13,12,0) 160px,
+                        rgba(15,13,12,0) calc(100% - 160px),rgba(15,13,12,.07) calc(100% - 135px),rgba(15,13,12,.25) calc(100% - 100px),rgba(15,13,12,.55) calc(100% - 60px),rgba(15,13,12,.85) calc(100% - 25px),var(--bg) 100%),
+        url("https://blackfriday.drarosanaacademy.com.br/img/rosana-meio.jpg") left 0 top 60px/100% auto no-repeat,
+        url("img/rosana-topo.png") left top/100% 61px no-repeat,
+        #e9e3dc;}
   .me .wrap{max-width:1200px;}
   .me-txt{margin-left:auto;width:min(47%,540px);}
   .me .eyebrow{color:#a87b12;}
