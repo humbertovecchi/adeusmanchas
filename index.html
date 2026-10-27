@@ -46,16 +46,20 @@
   .sec-head p{color:var(--dim);margin-top:14px;}
 
   /* topo */
-  .strip{background:var(--gold);color:#16110a;text-align:center;font-size:.78rem;font-weight:500;padding:8px 16px;letter-spacing:.04em;}
-  header{border-bottom:1px solid var(--line);}
-  .nav{display:flex;align-items:center;justify-content:center;gap:12px;height:70px;}
-  .mono{height:36px;width:auto;flex:none;}
-  .mark{font-family:var(--serif);font-weight:600;font-size:1.25rem;letter-spacing:.06em;color:var(--cream);line-height:1;}
+  .strip{background:var(--gold);color:#16110a;text-align:center;font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:9px 16px;}
+  header{padding:26px 0 22px;text-align:center;}
+  .nav{display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .mono{height:52px;width:auto;flex:none;}
+  .mark{font-family:var(--serif);font-weight:600;font-size:1.2rem;letter-spacing:.12em;color:var(--cream);}
+  header .mark{display:flex;align-items:center;gap:16px;font-family:var(--serif);font-weight:600;font-size:1.35rem;letter-spacing:.32em;color:var(--cream);line-height:1;padding-left:.32em;}
+  header .mark::before,header .mark::after{content:"";width:56px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dk));}
+  header .mark::after{transform:scaleX(-1);}
   .mark i{font-style:normal;color:var(--gold);}
-  .mark span{display:block;font-family:var(--sans);font-size:.62rem;letter-spacing:.24em;color:var(--dim);font-weight:500;text-transform:uppercase;margin-top:5px;}
+  .by{font-size:.66rem;letter-spacing:.3em;color:var(--dim);text-transform:uppercase;}
+  @media (max-width:640px){ header{padding:20px 0 14px;} .mono{height:42px;} header .mark{font-size:1.05rem;letter-spacing:.24em;gap:10px;} header .mark::before,header .mark::after{width:28px;} }
 
   /* hero + vídeo */
-  .hero{padding:52px 0 70px;text-align:center;}
+  .hero{padding:30px 0 70px;text-align:center;}
   .hero .sub{font-size:1.05rem;color:var(--body);max-width:620px;margin:22px auto 34px;}
   .video{position:relative;aspect-ratio:16/9;max-width:860px;margin:0 auto;border:1px solid var(--gold-dk);}
   .video-in{position:relative;width:100%;height:100%;overflow:hidden;background:#000;}
@@ -184,12 +188,13 @@
 </head>
 <body>
 
-<div class="strip" id="topo">Aula gratuita · assista até o final</div>
+<div class="strip" id="topo">Aula gratuita &nbsp;·&nbsp; assista até o final</div>
 
 <header>
   <div class="wrap nav">
     <img class="mono" src="img/r-ouro.png" alt="" />
-    <div class="mark">ADEUS <i>MANCHAS</i><span>Dra. Rosana Vecchi</span></div>
+    <div class="mark"><span>ADEUS <i>MANCHAS</i></span></div>
+    <span class="by">por Dra. Rosana Vecchi</span>
   </div>
 </header>
 
