@@ -224,20 +224,16 @@
     .barra{display:block;}
     body.tem-barra{padding-bottom:86px;}
   }
-  /* carrossel de resultados */
+  /* carrossel de resultados: faixa de ponta a ponta, rolando sem parar */
   .res{padding-top:20px;}
-  .car{position:relative;max-width:680px;margin:0 auto;}
-  .car-win{overflow:hidden;border-radius:18px;border:1px solid var(--gold-dk);background:#000;box-shadow:0 20px 60px rgba(0,0,0,.55),0 0 0 1px rgba(212,170,80,.15);}
-  .car-track{display:flex;transition:transform .6s cubic-bezier(.65,0,.35,1);}
-  .car-track img{flex:0 0 100%;width:100%;aspect-ratio:1/1;object-fit:contain;background:#000;}
-  .car-btn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);
-    background:rgba(11,9,8,.75);color:var(--gold);font-size:1.3rem;line-height:1;cursor:pointer;display:grid;place-items:center;}
-  .car-btn.prev{left:-14px;} .car-btn.next{right:-14px;}
-  .car-dots{display:flex;justify-content:center;gap:8px;margin-top:16px;}
-  .car-dots button{width:9px;height:9px;border-radius:50%;border:0;background:var(--line);cursor:pointer;padding:0;transition:.3s;}
-  .car-dots button.on{background:var(--gold);width:26px;border-radius:5px;}
-  .car-note{text-align:center;font-size:.75rem;color:var(--dim);margin-top:12px;}
-  @media (max-width:720px){ .car-btn.prev{left:8px;} .car-btn.next{right:8px;} .car-btn{width:36px;height:36px;} }
+  .car{position:relative;overflow:hidden;width:100%;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+  .car-track{display:flex;gap:16px;width:max-content;animation:rola 40s linear infinite;}
+  .car:hover .car-track{animation-play-state:paused;}
+  .car-track img{height:300px;width:auto;border-radius:14px;border:1px solid var(--gold-dk);box-shadow:0 12px 34px rgba(0,0,0,.5);}
+  @keyframes rola{to{transform:translateX(calc(-50% - 8px));}}
+  .car-note{text-align:center;font-size:.75rem;color:var(--dim);margin-top:16px;}
+  @media (max-width:720px){ .car-track img{height:200px;} .car-track{gap:10px;animation-duration:30s;} @keyframes rola{to{transform:translateX(calc(-50% - 5px));}} }
 </style>
 </head>
 <body>
@@ -316,21 +312,20 @@
       <span class="kicker">Resultados reais</span>
       <h2>Pele de verdade, <span class="gold">sem filtro.</span></h2>
     </div>
-    <div class="car" id="car">
-      <div class="car-win">
-        <div class="car-track">
-          <img src="img/resultado-1.jpg" alt="Antes e depois do tratamento de manchas" />
-          <img src="img/resultado-2.jpg" alt="Antes e depois do tratamento de manchas" loading="lazy" />
-          <img src="img/resultado-3.jpg" alt="Antes e depois do tratamento de manchas" loading="lazy" />
-          <img src="img/resultado-4.jpg" alt="Antes e depois do tratamento de manchas" loading="lazy" />
-        </div>
-      </div>
-      <button class="car-btn prev" aria-label="Anterior">&#8249;</button>
-      <button class="car-btn next" aria-label="Próxima">&#8250;</button>
-      <div class="car-dots"></div>
-      <p class="car-note">Imagens ilustrativas. Os resultados variam de pessoa para pessoa.</p>
+  </div>
+  <div class="car" id="car">
+    <div class="car-track">
+      <img src="img/resultado-1.jpg" alt="Antes e depois do tratamento de manchas" />
+      <img src="img/resultado-2.jpg" alt="Antes e depois do tratamento de manchas" />
+      <img src="img/resultado-3.jpg" alt="Antes e depois do tratamento de manchas" />
+      <img src="img/resultado-4.jpg" alt="Antes e depois do tratamento de manchas" />
+      <img src="img/resultado-1.jpg" alt="Antes e depois do tratamento de manchas" aria-hidden="true" />
+      <img src="img/resultado-2.jpg" alt="Antes e depois do tratamento de manchas" aria-hidden="true" />
+      <img src="img/resultado-3.jpg" alt="Antes e depois do tratamento de manchas" aria-hidden="true" />
+      <img src="img/resultado-4.jpg" alt="Antes e depois do tratamento de manchas" aria-hidden="true" />
     </div>
   </div>
+  <p class="car-note">Imagens ilustrativas. Os resultados variam de pessoa para pessoa.</p>
 </section>
 
 <!-- COMO FUNCIONA -->
@@ -549,32 +544,6 @@
       document.querySelectorAll('details').forEach(function(o){ if (o !== d) o.open = false; });
     });
   });
-  // carrossel de resultados: passa sozinho, pausa no toque/mouse
-  (function(){
-    var car = document.getElementById('car'); if (!car) return;
-    var track = car.querySelector('.car-track'), n = track.children.length, i = 0, t;
-    var dots = car.querySelector('.car-dots');
-    for (var k = 0; k < n; k++) {
-      var b = document.createElement('button'); b.setAttribute('aria-label', 'Imagem ' + (k + 1));
-      b.onclick = (function(k){ return function(){ ir(k); }; })(k); dots.appendChild(b);
-    }
-    function ir(k){
-      i = (k + n) % n; track.style.transform = 'translateX(' + (-100 * i) + '%)';
-      [].forEach.call(dots.children, function(d, j){ d.classList.toggle('on', j === i); });
-      clearInterval(t); t = setInterval(function(){ ir(i + 1); }, 3500);
-    }
-    car.querySelector('.prev').onclick = function(){ ir(i - 1); };
-    car.querySelector('.next').onclick = function(){ ir(i + 1); };
-    car.addEventListener('mouseenter', function(){ clearInterval(t); });
-    car.addEventListener('mouseleave', function(){ ir(i); });
-    var x0 = null;
-    track.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; clearInterval(t); }, { passive: true });
-    track.addEventListener('touchend', function(e){
-      if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null;
-      ir(Math.abs(dx) > 40 ? i + (dx < 0 ? 1 : -1) : i);
-    });
-    ir(0);
-  })();
 </script>
 
 </body>
