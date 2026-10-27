@@ -159,9 +159,9 @@
   /* resultados: faixa de ponta a ponta, rolando sem parar; marca alterna entre o nome e o R */
   .res{padding-top:10px;}
   .car{position:relative;overflow:hidden;width:100%;}
-  .car-track{display:flex;width:max-content;animation:rola 45s linear infinite;will-change:transform;}
+  .car-track{display:flex;width:max-content;animation:rola 45s linear infinite;}
   .car-track figure{position:relative;flex:none;height:300px;padding-right:14px;}
-  .car-track img{height:100%;width:auto;max-width:none;}
+  .car-track figure > img{height:100%;width:auto;max-width:none;}
   .wm{position:absolute;left:0;right:14px;bottom:7%;display:flex;justify-content:center;pointer-events:none;}
   .wm-nome{flex-direction:column;align-items:center;font-family:var(--serif);font-weight:700;line-height:.9;text-transform:uppercase;
            font-size:38px;text-shadow:0 2px 14px rgba(0,0,0,.55);}
@@ -182,9 +182,15 @@
     section{padding:60px 0;}
     .hero{padding-top:34px;}
     .offer{padding:28px 20px 22px;}
-    .me{display:block;min-height:0;padding:0 0 110px;background:linear-gradient(180deg,#efe9e2 85%,var(--bg) 100%);}
-    .me::before{content:"";display:block;aspect-ratio:4/3;margin-bottom:34px;
-      background:linear-gradient(180deg,var(--bg) 0%,rgba(15,13,12,0) 22%),url("https://blackfriday.drarosanaacademy.com.br/img/rosana-meio.jpg") 18% top/cover no-repeat;}
+    .me{display:block;min-height:0;padding:0 0 64px;background:linear-gradient(180deg,#efe9e2 calc(100% - 48px),var(--bg) 100%);}
+    .me::before{content:"";display:block;aspect-ratio:4/5;margin-bottom:6px;
+      background:linear-gradient(180deg,var(--bg) 0,rgba(15,13,12,0) 90px,rgba(239,233,226,0) 72%,#efe9e2 100%),
+                 url("https://blackfriday.drarosanaacademy.com.br/img/rosana-meio.jpg") 14% top/auto 100% no-repeat,#e9e3dc;}
+    .me h2{font-size:1.85rem;}
+    .me p{font-size:.95rem;}
+    .cv li{font-size:.86rem;padding:7px 0 7px 20px;}
+    .cv li::before{top:16px;}
+    .me .sign{font-size:2.5rem;margin-top:16px;}
     .me-txt{width:auto;}
     .barra{display:block;}
     body.tem-barra{padding-bottom:86px;}
@@ -259,14 +265,14 @@
   </div>
   <div class="car" id="car">
     <div class="car-track">
-      <figure><img src="img/resultado-1.jpg" alt="Antes e depois do tratamento de manchas" /></figure>
-      <figure><img src="img/resultado-2.jpg" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-r"><img src="img/r-ouro.png" alt="" /></div></figure>
-      <figure><img src="img/resultado-3.jpg" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-nome"><span>Adeus</span><span>Manchas</span></div></figure>
-      <figure><img src="img/resultado-4.jpg" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-r"><img src="img/r-ouro.png" alt="" /></div></figure>
-      <figure aria-hidden="true"><img src="img/resultado-1.jpg" alt="Antes e depois do tratamento de manchas" /></figure>
-      <figure aria-hidden="true"><img src="img/resultado-2.jpg" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-r"><img src="img/r-ouro.png" alt="" /></div></figure>
-      <figure aria-hidden="true"><img src="img/resultado-3.jpg" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-nome"><span>Adeus</span><span>Manchas</span></div></figure>
-      <figure aria-hidden="true"><img src="img/resultado-4.jpg" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-r"><img src="img/r-ouro.png" alt="" /></div></figure>
+      <figure><img src="img/resultado-1.jpg" width="1200" height="1200" decoding="async" alt="Antes e depois do tratamento de manchas" /></figure>
+      <figure><img src="img/resultado-2.jpg" width="1200" height="1200" decoding="async" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-r"><img src="img/r-ouro.png" alt="" /></div></figure>
+      <figure><img src="img/resultado-3.jpg" width="1200" height="785" decoding="async" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-nome"><span>Adeus</span><span>Manchas</span></div></figure>
+      <figure><img src="img/resultado-4.jpg" width="1200" height="628" decoding="async" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-r"><img src="img/r-ouro.png" alt="" /></div></figure>
+      <figure aria-hidden="true"><img src="img/resultado-1.jpg" width="1200" height="1200" decoding="async" alt="Antes e depois do tratamento de manchas" /></figure>
+      <figure aria-hidden="true"><img src="img/resultado-2.jpg" width="1200" height="1200" decoding="async" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-r"><img src="img/r-ouro.png" alt="" /></div></figure>
+      <figure aria-hidden="true"><img src="img/resultado-3.jpg" width="1200" height="785" decoding="async" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-nome"><span>Adeus</span><span>Manchas</span></div></figure>
+      <figure aria-hidden="true"><img src="img/resultado-4.jpg" width="1200" height="628" decoding="async" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-r"><img src="img/r-ouro.png" alt="" /></div></figure>
     </div>
   </div>
   <p class="car-note">Imagens ilustrativas. Os resultados variam de pessoa para pessoa.</p>
