@@ -74,6 +74,14 @@
   .trust{margin-top:16px;font-size:.8rem;color:var(--dim);white-space:nowrap;}
   @media (max-width:420px){ .trust{font-size:.68rem;} }
   .pay{margin-top:4px;font-size:.8rem;color:var(--dim);}
+  /* no computador, oferta ao lado do vídeo */
+  @media (min-width:900px){
+    .stage{display:flex;justify-content:center;align-items:center;gap:56px;}
+    .vcol{flex:0 0 380px;}
+    .stage #cta{flex:0 1 460px;}
+    .stage .offer{margin:0;text-align:left;}
+    .stage .trust{white-space:normal;}
+  }
   .late{display:none;}
   .late.on{display:block;}
 
@@ -210,6 +218,8 @@
     <h1>Por que dessa vez você vai conseguir<br><span class="gold">a pele que tanto sonha?</span></h1>
     <p class="sub">Porque esse protocolo já foi validado em <b>mais de 10 mil mulheres</b>.</p>
 
+    <div class="stage">
+    <div class="vcol">
     <!-- VSL (Vturb / ConverteAI), vídeo vertical -->
     <div class="video" id="video">
       <div id="ifr_6ae15b3dced384a606e89964_wrapper" style="margin: 0 auto; width: 100%;">
@@ -220,6 +230,7 @@
     </div>
     <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/sdk.js", s.async=!0,document.head.appendChild(s); </script>
     <span class="sound">Ligue o som do celular pra assistir.</span>
+    </div>
 
     <div class="late" id="cta">
       <div class="offer">
@@ -227,6 +238,7 @@
         <a class="btn checkout" href="#">Quero começar o protocolo</a>
         <p class="trust">Compra segura · acesso na hora · Pix ou cartão em até 12x</p>
       </div>
+    </div>
     </div>
   </div>
 </section>
