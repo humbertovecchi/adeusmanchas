@@ -459,14 +459,14 @@
     document.querySelectorAll('.late').forEach(function(el){ el.classList.add('on'); });
     document.body.classList.add('tem-barra');
     try { localStorage.setItem('am_cta', '1'); } catch(e) {}
-    // barra fixa some quando um card de oferta está na tela
+    // barra fixa some quando o vídeo ou um card de oferta está na tela
     if ('IntersectionObserver' in window) {
       var visiveis = new Set();
       var obs = new IntersectionObserver(function(es){
         es.forEach(function(e){ e.isIntersecting ? visiveis.add(e.target) : visiveis.delete(e.target); });
         barra.classList.toggle('show', visiveis.size === 0);
       }, { threshold: .15 });
-      document.querySelectorAll('.offer').forEach(function(o){ obs.observe(o); });
+      document.querySelectorAll('.offer, #video').forEach(function(o){ obs.observe(o); });
     } else {
       barra.classList.add('show');
     }
