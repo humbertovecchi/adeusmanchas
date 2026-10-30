@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Descubra sua mancha | Adeus Manchas</title>
+<link rel="icon" href="favicon.png?v=5" type="image/png" sizes="512x512" />
+<link rel="icon" href="favicon-32.png?v=5" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=5" />
+<meta name="description" content="Responda 7 perguntas rápidas e descubra o que está por trás das suas manchas, e por que elas voltam." />
+<meta property="og:title" content="Descubra qual é a sua mancha" />
+<meta property="og:description" content="Teste rápido, menos de 1 minuto. Por Dra. Rosana Vecchi." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0f0d0c;
+    --bg2:#161311;
+    --line:#2e2823;
+    --gold:#c9a14a;
+    --gold-dk:#a8832f;
+    --cream:#f3ede3;
+    --body:#cfc6b8;
+    --dim:#8f877c;
+    --sans:"Jost",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --serif:"EB Garamond",Georgia,"Times New Roman",serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{min-height:100%;}
+  body{background:var(--bg);color:var(--body);overflow-x:hidden;font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+       display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;}
+  img{max-width:100%;display:block;}
+  b,strong{color:var(--cream);font-weight:600;}
+  h1,h2{font-family:var(--serif);color:var(--cream);font-weight:600;}
+  .gold{color:var(--gold);font-style:italic;}
+
+  /* topo */
+  header{padding:18px 20px 10px;text-align:center;}
+  .nav{display:flex;flex-direction:column;align-items:center;gap:6px;}
+  .mono{height:36px;width:auto;}
+  .mark{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:1rem;letter-spacing:.26em;color:var(--cream);line-height:1;padding-left:.26em;}
+  .mark::before,.mark::after{content:"";width:28px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dk));}
+  .mark::after{transform:scaleX(-1);}
+  .mark i{font-style:normal;color:var(--gold);}
+
+  main{flex:1;width:100%;max-width:560px;margin:0 auto;padding:10px 20px 40px;}
+
+  /* progresso */
+  .prog{display:none;margin:8px 0 26px;}
+  .prog.on{display:block;}
+  .prog-top{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--dim);margin-bottom:8px;}
+  .voltar{background:none;border:0;color:var(--dim);font:inherit;font-size:.78rem;cursor:pointer;padding:4px 0;}
+  .voltar:hover{color:var(--gold);}
+  .bar{height:3px;background:var(--line);border-radius:3px;overflow:hidden;}
+  .bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .35s ease;}
+
+  /* telas */
+  .tela{display:none;animation:entra .35s ease;}
+  .tela.on{display:block;}
+  @keyframes entra{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+
+  /* abertura */
+  .intro{text-align:center;padding-top:14px;}
+  .eyebrow{display:block;font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--gold);margin-bottom:10px;}
+  .intro h1{font-size:clamp(2.1rem,7vw,2.9rem);line-height:1.05;}
+  .intro p{margin:18px auto 28px;max-width:440px;}
+  .selos{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:18px;font-size:.78rem;color:var(--dim);}
+  .foto{width:100%;max-width:420px;margin:0 auto 26px;border:1px solid var(--gold-dk);border-radius:14px;overflow:hidden;aspect-ratio:1/1;background:var(--bg2);}
+  .foto img{width:100%;height:100%;object-fit:cover;}
+
+  /* pergunta */
+  .q h2{font-size:clamp(1.65rem,5.6vw,2.15rem);line-height:1.12;margin-bottom:8px;}
+  .q .hint{font-size:.9rem;color:var(--dim);margin-bottom:22px;}
+  .opts{display:grid;gap:10px;}
+  .opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--bg2);border:1px solid var(--line);border-radius:12px;
+       color:var(--cream);font:inherit;font-size:1rem;padding:16px 18px;cursor:pointer;transition:border-color .15s,background .15s;}
+  .opt:hover{border-color:var(--gold-dk);}
+  .opt .ic{flex:none;width:22px;height:22px;border:1px solid var(--gold-dk);border-radius:50%;position:relative;}
+  .opt.sel{border-color:var(--gold);background:linear-gradient(160deg,rgba(201,161,74,.16),rgba(201,161,74,.04));}
+  .opt.sel .ic{background:var(--gold);border-color:var(--gold);}
+  .opt.sel .ic::after{content:"";position:absolute;left:7px;top:3px;width:6px;height:11px;border:solid #16110a;border-width:0 2px 2px 0;transform:rotate(45deg);}
+  .multi .opt .ic{border-radius:5px;}
+
+  .btn{display:block;width:100%;text-align:center;background:var(--gold);color:#16110a;font-family:var(--sans);font-weight:600;font-size:1.02rem;letter-spacing:.02em;
+       text-decoration:none;padding:18px;border:0;border-radius:4px;cursor:pointer;transition:background .2s,opacity .2s;}
+  .btn:hover{background:#d8b25d;}
+  .btn:disabled{opacity:.35;cursor:default;background:var(--gold);}
+  .q .btn{margin-top:20px;}
+
+  /* analisando */
+  .anal{text-align:center;padding-top:40px;}
+  .anal h2{font-size:1.9rem;margin-bottom:26px;}
+  .roda{width:64px;height:64px;margin:0 auto 30px;border:2px solid var(--line);border-top-color:var(--gold);border-radius:50%;animation:gira 1s linear infinite;}
+  @keyframes gira{to{transform:rotate(360deg);}}
+  .passos{list-style:none;max-width:340px;margin:0 auto;text-align:left;}
+  .passos li{padding:9px 0 9px 28px;position:relative;font-size:.95rem;color:var(--dim);opacity:.35;transition:opacity .3s,color .3s;}
+  .passos li.ok{opacity:1;color:var(--cream);}
+  .passos li::before{content:"";position:absolute;left:0;top:14px;width:14px;height:14px;border:1px solid var(--gold-dk);border-radius:50%;}
+  .passos li.ok::before{background:var(--gold);border-color:var(--gold);}
+
+  /* resultado */
+  .res{text-align:center;}
+  .res h2{font-size:clamp(1.9rem,6.5vw,2.5rem);line-height:1.08;margin-bottom:18px;}
+  .card{background:var(--bg2);border:1px solid var(--gold-dk);border-radius:14px;padding:24px 22px;text-align:left;margin:0 0 22px;}
+  .card .tag{display:inline-block;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px;}
+  .card h3{font-family:var(--serif);font-size:1.6rem;color:var(--cream);line-height:1.15;margin-bottom:10px;font-weight:600;}
+  .card p{font-size:.96rem;margin-bottom:12px;}
+  .card p:last-child{margin-bottom:0;}
+  .card ul{list-style:none;margin-top:6px;}
+  .card li{padding:8px 0 8px 22px;position:relative;font-size:.94rem;border-top:1px solid var(--line);}
+  .card li::before{content:"";position:absolute;left:0;top:18px;width:10px;height:1px;background:var(--gold);}
+  .res .cta-txt{margin:0 auto 18px;max-width:440px;}
+  .aviso{font-size:.74rem;color:var(--dim);margin-top:16px;line-height:1.5;}
+
+  footer{border-top:1px solid var(--line);padding:16px 20px;font-size:.72rem;color:var(--dim);text-align:center;line-height:1.55;}
+  footer a{color:var(--body);}
+
+  @media (max-width:420px){
+    body{font-size:16px;}
+    .opt{padding:15px 15px;font-size:.96rem;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <img class="mono" src="img/r-ouro.png" alt="" />
+    <div class="mark"><span>ADEUS <i>MANCHAS</i></span></div>
+  </div>
+</header>
+
+<main>
+  <div class="prog" id="prog">
+    <div class="prog-top">
+      <button class="voltar" id="voltar" type="button">← Voltar</button>
+      <span id="contador"></span>
+    </div>
+    <div class="bar"><i id="barra"></i></div>
+  </div>
+
+  <!-- ABERTURA -->
+  <section class="tela on intro" id="t-intro">
+    <span class="eyebrow">Teste rápido · menos de 1 minuto</span>
+    <h1>Por que a sua mancha <span class="gold">sempre volta?</span></h1>
+    <p>Responda 7 perguntas e descubra <b>o que está por trás das suas manchas</b> e o caminho certo pra clarear em casa.</p>
+    <div class="foto"><img src="img/resultado-1.jpg" width="1200" height="1200" alt="Antes e depois do tratamento de manchas" /></div>
+    <button class="btn" id="comecar" type="button">Começar o teste</button>
+    <div class="selos"><span>✓ Gratuito</span><span>✓ 7 perguntas</span><span>✓ Resultado na hora</span></div>
+  </section>
+
+  <!-- PERGUNTAS (montadas pelo script) -->
+  <section class="tela q" id="t-q"></section>
+
+  <!-- ANALISANDO -->
+  <section class="tela anal" id="t-anal">
+    <div class="roda"></div>
+    <h2>Analisando suas respostas…</h2>
+    <ul class="passos" id="passos">
+      <li>Identificando o padrão das manchas</li>
+      <li>Avaliando o que faz elas voltarem</li>
+      <li>Montando o seu caminho de clareamento</li>
+    </ul>
+  </section>
+
+  <!-- RESULTADO -->
+  <section class="tela res" id="t-res">
+    <span class="eyebrow">Seu resultado</span>
+    <h2 id="r-titulo"></h2>
+    <div class="card" id="r-card"></div>
+    <p class="cta-txt" id="r-cta-txt">A Dra. Rosana preparou uma <b>aula gratuita</b> explicando por que a mancha volta todo verão e o protocolo pra clarear em casa, com 5 minutos por dia.</p>
+    <a class="btn" id="r-btn" href="index.html">Assistir à aula gratuita</a>
+    <p class="aviso">Este teste é educativo e não faz diagnóstico. Se uma mancha mudou de cor, tamanho ou formato, procure um médico presencialmente.</p>
+  </section>
+</main>
+
+<footer>
+  © 2026 Dra. Rosana Academy · <a href="politica-de-privacidade.html">Política de privacidade</a>
+</footer>
+
+<script>
+  // ===== CONFIGURAÇÃO =====
+  var DESTINO = 'index.html'; // página da aula (VSL)
+  var PIXEL_ID = '';          // ID do Pixel da Meta (deixe vazio se não usar)
+  // ========================
+
+  // tipo de mancha: m = melasma, s = mancha de sol, a = marca de acne/inflamação
+  var PERGUNTAS = [
+    { id:'local', t:'Onde ficam as suas manchas?', h:'Pode marcar mais de uma.', multi:true, o:[
+      ['Maçãs do rosto e nariz', {m:2}],
+      ['Testa ou buço', {m:2}],
+      ['Onde eu tive espinhas', {a:3}],
+      ['Mãos, colo ou braços', {s:3}],
+      ['Espalhadas pelo rosto', {s:1,m:1}]
+    ]},
+    { id:'aspecto', t:'Como elas são?', o:[
+      ['Manchas grandes, como um "mapa", dos dois lados do rosto', {m:3}],
+      ['Pontinhos ou bolinhas marrons', {s:3}],
+      ['Manchinhas no lugar de espinhas ou machucados', {a:3}],
+      ['Não sei dizer', {}]
+    ]},
+    { id:'piora', t:'O que deixa elas mais escuras?', h:'Pode marcar mais de uma.', multi:true, o:[
+      ['Sol, mesmo que pouco', {m:1,s:2}],
+      ['Calor, cozinha, academia', {m:3}],
+      ['Gravidez ou anticoncepcional', {m:3}],
+      ['Quando aparecem espinhas', {a:3}],
+      ['Não percebo nada específico', {}]
+    ]},
+    { id:'volta', t:'Você já clareou e elas voltaram?', o:[
+      ['Sim, voltam todo verão', {m:3}],
+      ['Sim, voltam aos poucos', {m:1,s:1}],
+      ['Nunca consegui clarear', {}],
+      ['Nunca tratei', {}]
+    ]},
+    { id:'tentou', t:'O que você já tentou?', h:'Pode marcar mais de uma.', multi:true, o:[
+      ['Cremes e séruns clareadores', {}],
+      ['Ácidos ou peeling', {}],
+      ['Laser ou procedimentos', {}],
+      ['Receitas caseiras', {}],
+      ['Nada ainda', {}]
+    ]},
+    { id:'idade', t:'Qual a sua idade?', o:[
+      ['Até 29 anos', {a:1}],
+      ['30 a 44 anos', {m:1}],
+      ['45 a 59 anos', {s:1}],
+      ['60 anos ou mais', {s:2}]
+    ]},
+    { id:'gestante', t:'Você está grávida ou amamentando?', o:[
+      ['Não', {}],
+      ['Sim', {}]
+    ]}
+  ];
+
+  var RESULTADOS = {
+    m: { titulo:'Seu padrão é parecido com o <span class="gold">melasma</span>', nome:'Padrão melasma',
+         txt:'Manchas no centro do rosto que escurecem com sol, calor e hormônios, e que voltam mesmo depois de clarear. É o tipo que mais frustra, porque responde a <b>tudo</b>: luz, temperatura e inflamação.',
+         itens:['Clarear sem acalmar a pele faz a mancha voltar mais forte','Protetor comum não basta: calor e luz visível também escurecem','O segredo está na manutenção, não só no clareamento'] },
+    s: { titulo:'Seu padrão é parecido com <span class="gold">manchas de sol</span>', nome:'Padrão mancha solar',
+         txt:'Manchas que surgem com anos de exposição ao sol, principalmente no rosto, nas mãos e no colo. A boa notícia: costumam responder bem quando a rotina está certa.',
+         itens:['O sol acumulado ao longo dos anos continua agindo','A ordem e a combinação dos ativos fazem toda a diferença','Sem proteção diária, qualquer clareamento é perdido'] },
+    a: { titulo:'Seu padrão é parecido com <span class="gold">marcas de acne</span>', nome:'Padrão pós-inflamatório',
+         txt:'Manchas que ficam no lugar de espinhas ou machucados. Elas nascem da inflamação, então tratar só a mancha sem cuidar da pele faz o ciclo continuar.',
+         itens:['Ácido forte demais inflama e escurece ainda mais','Reconstruir a barreira da pele vem antes de clarear','Com a rotina certa, essas marcas clareiam mais rápido'] }
+  };
+
+  var respostas = {}, idx = 0;
+  var $ = function(id){ return document.getElementById(id); };
+
+  // Pixel da Meta (opcional)
+  if (PIXEL_ID) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', PIXEL_ID); fbq('track', 'PageView');
+  }
+  function evento(nome, dados){ if (window.fbq) fbq('trackCustom', nome, dados || {}); }
+
+  function mostra(id){
+    document.querySelectorAll('.tela').forEach(function(t){ t.classList.remove('on'); });
+    $(id).classList.add('on');
+    $('prog').classList.toggle('on', id === 't-q');
+    window.scrollTo(0, 0);
+  }
+
+  function pergunta(){
+    var p = PERGUNTAS[idx], sel = respostas[p.id] || [];
+    $('contador').textContent = (idx + 1) + ' de ' + PERGUNTAS.length;
+    $('barra').style.width = (idx / PERGUNTAS.length * 100) + '%';
+    var q = $('t-q');
+    q.className = 'tela q on' + (p.multi ? ' multi' : '');
+    q.innerHTML = '<h2>' + p.t + '</h2>' + (p.h ? '<p class="hint">' + p.h + '</p>' : '<p class="hint">Escolha uma opção.</p>') +
+      '<div class="opts">' + p.o.map(function(o, i){
+        return '<button type="button" class="opt' + (sel.indexOf(i) > -1 ? ' sel' : '') + '" data-i="' + i + '"><span class="ic"></span>' + o[0] + '</button>';
+      }).join('') + '</div>' +
+      (p.multi ? '<button type="button" class="btn" id="seguir"' + (sel.length ? '' : ' disabled') + '>Continuar</button>' : '');
+
+    q.querySelectorAll('.opt').forEach(function(b){
+      b.addEventListener('click', function(){
+        var i = +b.dataset.i;
+        if (p.multi) {
+          var s = respostas[p.id] || [];
+          // "nada" é exclusivo: desmarca as outras (e vice-versa)
+          var ultimo = p.o.length - 1, exclusivo = /^(Nada|Não percebo)/.test(p.o[ultimo][0]);
+          if (s.indexOf(i) > -1) s = s.filter(function(x){ return x !== i; });
+          else if (exclusivo && i === ultimo) s = [i];
+          else s = s.filter(function(x){ return !(exclusivo && x === ultimo); }).concat(i);
+          respostas[p.id] = s;
+          q.querySelectorAll('.opt').forEach(function(o){ o.classList.toggle('sel', s.indexOf(+o.dataset.i) > -1); });
+          $('seguir').disabled = !s.length;
+        } else {
+          respostas[p.id] = [i];
+          b.classList.add('sel');
+          setTimeout(avanca, 220);
+        }
+      });
+    });
+    if (p.multi) $('seguir').addEventListener('click', avanca);
+  }
+
+  function avanca(){
+    evento('QuizPergunta', { pergunta: idx + 1 });
+    if (idx < PERGUNTAS.length - 1) { idx++; pergunta(); }
+    else analisa();
+  }
+
+  $('voltar').addEventListener('click', function(){
+    if (idx > 0) { idx--; pergunta(); } else mostra('t-intro');
+  });
+
+  $('comecar').addEventListener('click', function(){
+    evento('QuizInicio');
+    idx = 0; mostra('t-q'); pergunta();
+  });
+
+  function calcula(){
+    var pts = { m:0, s:0, a:0 };
+    PERGUNTAS.forEach(function(p){
+      (respostas[p.id] || []).forEach(function(i){
+        var v = p.o[i][1];
+        for (var k in v) pts[k] += v[k];
+      });
+    });
+    // empate ou nenhum ponto: melasma (perfil mais comum do público)
+    return ['m','s','a'].reduce(function(a, b){ return pts[b] > pts[a] ? b : a; }, 'm');
+  }
+
+  function analisa(){
+    $('barra').style.width = '100%';
+    mostra('t-anal');
+    var li = $('passos').querySelectorAll('li');
+    li.forEach(function(l){ l.classList.remove('ok'); });
+    li.forEach(function(l, i){ setTimeout(function(){ l.classList.add('ok'); }, 700 * (i + 1)); });
+    setTimeout(resultado, 700 * li.length + 700);
+  }
+
+  function resultado(){
+    var tipo = calcula(), r = RESULTADOS[tipo];
+    var gestante = (respostas.gestante || [])[0] === 1;
+    $('r-titulo').innerHTML = r.titulo;
+    $('r-card').innerHTML = '<span class="tag">' + r.nome + '</span><h3>Por que a sua mancha não vai embora</h3><p>' + r.txt + '</p><ul>' +
+      r.itens.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul>' +
+      (gestante ? '<p style="margin-top:14px;color:var(--gold)">Importante: o protocolo não é indicado durante a gravidez e a amamentação. Assista à aula pra entender sua mancha e comece depois desse período.</p>' : '');
+
+    // leva os UTMs da URL + o resultado do quiz pra página da aula
+    var qs = location.search.replace(/^\?/, '');
+    qs = (qs ? qs + '&' : '') + 'quiz=' + tipo;
+    $('r-btn').href = DESTINO + (DESTINO.indexOf('?') > -1 ? '&' : '?') + qs;
+
+    evento('QuizResultado', { tipo: tipo, gestante: gestante });
+    mostra('t-res');
+  }
+
+  $('r-btn').addEventListener('click', function(){ evento('QuizCliqueAula', {}); if (window.fbq) fbq('track', 'Lead'); });
+</script>
+
+</body>
+</html>
