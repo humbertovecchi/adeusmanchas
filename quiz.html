@@ -4,56 +4,60 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Descubra sua mancha | Adeus Manchas</title>
-<link rel="icon" href="favicon.png?v=6" type="image/png" sizes="512x512" />
-<link rel="icon" href="favicon-32.png?v=6" sizes="32x32" type="image/png" />
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=6" />
-<meta name="description" content="Responda 7 perguntas rápidas e descubra o que está por trás das suas manchas, e por que elas voltam." />
+<link rel="icon" href="icone-32.png?v=3" sizes="32x32" type="image/png" />
+<link rel="icon" href="icone-16.png?v=3" sizes="16x16" type="image/png" />
+<link rel="icon" href="icone-48.png?v=3" sizes="48x48" type="image/png" />
+<link rel="icon" href="icone-512.png?v=3" sizes="512x512" type="image/png" />
+<link rel="apple-touch-icon" href="icone-180.png?v=3" />
+<meta name="description" content="Responda 6 perguntas rápidas e descubra o que está por trás das suas manchas, e por que elas voltam." />
 <meta property="og:title" content="Descubra qual é a sua mancha" />
 <meta property="og:description" content="Teste rápido, menos de 1 minuto. Por Dra. Rosana Vecchi." />
+<meta property="og:image" content="https://adeusmanchas.drarosanaacademy.com.br/banner/banner-mobile-1080x600.png" />
+<meta name="theme-color" content="#faf7f2" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#0f0d0c;
-    --bg2:#161311;
-    --line:#2e2823;
-    --gold:#c9a14a;
-    --gold-dk:#a8832f;
-    --cream:#f3ede3;
-    --body:#cfc6b8;
-    --dim:#8f877c;
+    --bg:#faf7f2;
+    --card:#ffffff;
+    --line:#ece4d6;
+    --ink:#1d1813;
+    --body:#4a4036;
+    --dim:#8a7f72;
+    --gold:#b8892a;
+    --gold-grad:linear-gradient(180deg,#e6c873 0%,#c99a3a 50%,#a87a1c 100%);
+    --gold-soft:#f6eedd;
     --sans:"Jost",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     --serif:"EB Garamond",Georgia,"Times New Roman",serif;
+    --caps:"Cinzel","EB Garamond",Georgia,serif;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  html,body{min-height:100%;}
   body{background:var(--bg);color:var(--body);overflow-x:hidden;font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
        display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;}
   img{max-width:100%;display:block;}
-  b,strong{color:var(--cream);font-weight:600;}
-  h1,h2{font-family:var(--serif);color:var(--cream);font-weight:600;}
-  .gold{color:var(--gold);font-style:italic;}
+  b,strong{color:var(--ink);font-weight:600;}
+  h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;}
+  .ouro{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal;}
 
-  /* topo */
-  header{padding:18px 20px 10px;text-align:center;}
-  .nav{display:flex;flex-direction:column;align-items:center;gap:6px;}
-  .mono{height:36px;width:auto;}
-  .mark{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:1rem;letter-spacing:.26em;color:var(--cream);line-height:1;padding-left:.26em;}
-  .mark::before,.mark::after{content:"";width:28px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dk));}
-  .mark::after{transform:scaleX(-1);}
-  .mark i{font-style:normal;color:var(--gold);}
+  /* topo (só nas perguntas e no resultado) */
+  header{padding:16px 20px 4px;text-align:center;display:none;}
+  body.dentro header{display:block;}
+  .logo{display:inline-flex;flex-direction:column;align-items:center;gap:2px;line-height:1;}
+  .logo img{height:30px;width:auto;}
+  .logo span{font-family:var(--caps);font-weight:600;font-size:.82rem;letter-spacing:.28em;color:var(--ink);padding-left:.28em;margin-top:4px;}
+  .logo i{font-style:normal;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
 
-  main{flex:1;width:100%;max-width:560px;margin:0 auto;padding:10px 20px 40px;}
+  main{flex:1;width:100%;max-width:560px;margin:0 auto;padding:0 20px 36px;}
 
   /* progresso */
-  .prog{display:none;margin:8px 0 26px;}
+  .prog{display:none;margin:14px 0 24px;}
   .prog.on{display:block;}
-  .prog-top{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--dim);margin-bottom:8px;}
-  .voltar{background:none;border:0;color:var(--dim);font:inherit;font-size:.78rem;cursor:pointer;padding:4px 0;}
+  .prog-top{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--dim);margin-bottom:8px;}
+  .voltar{background:none;border:0;color:var(--dim);font:inherit;font-size:.8rem;cursor:pointer;padding:4px 0;}
   .voltar:hover{color:var(--gold);}
-  .bar{height:3px;background:var(--line);border-radius:3px;overflow:hidden;}
-  .bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .35s ease;}
+  .bar{height:6px;background:var(--line);border-radius:6px;overflow:hidden;}
+  .bar i{display:block;height:100%;width:0;background:var(--gold-grad);border-radius:6px;transition:width .4s ease;}
 
   /* telas */
   .tela{display:none;animation:entra .35s ease;}
@@ -61,74 +65,127 @@
   @keyframes entra{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
 
   /* abertura */
-  .intro{text-align:center;padding-top:14px;}
-  .eyebrow{display:block;font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--gold);margin-bottom:10px;}
-  .intro h1{font-size:clamp(2.1rem,7vw,2.9rem);line-height:1.05;}
-  .intro p{margin:18px auto 28px;max-width:440px;}
-  .selos{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:18px;font-size:.78rem;color:var(--dim);}
-  .foto{width:100%;max-width:420px;margin:0 auto 26px;border:1px solid var(--gold-dk);border-radius:14px;overflow:hidden;aspect-ratio:1/1;background:var(--bg2);}
-  .foto img{width:100%;height:100%;object-fit:cover;}
+  .intro{text-align:center;}
+  .capa{margin:0 -20px;position:relative;}
+  .capa img{width:100%;height:auto;aspect-ratio:1080/600;object-fit:cover;}
+  .capa::after{content:"";position:absolute;left:0;right:0;bottom:0;height:36%;background:linear-gradient(180deg,rgba(250,247,242,0),var(--bg));}
+  .pill{display:inline-block;background:var(--gold-soft);color:#8a6418;border:1px solid #ead9b3;font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+        padding:6px 14px;border-radius:30px;margin:2px 0 14px;}
+  .intro h1{font-size:clamp(2rem,7.4vw,2.7rem);line-height:1.08;}
+  .intro .sub{margin:14px auto 22px;max-width:430px;font-size:1.02rem;}
+  .prova{display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:16px;font-size:.86rem;color:var(--body);}
+  .estrelas{color:#d0a23c;letter-spacing:2px;font-size:.95rem;}
+  /* antes e depois: mesmo carrossel da página da aula, de ponta a ponta e rolando sem parar */
+  .car{position:relative;overflow:hidden;width:100vw;margin:26px 0 0 calc(50% - 50vw);}
+  .car-track{display:flex;width:max-content;animation:rola 45s linear infinite;}
+  .car-track figure{position:relative;flex:none;height:300px;margin:0;padding-right:14px;}
+  .car-track figure > img{height:100%;width:auto;max-width:none;}
+  .wm{position:absolute;left:0;right:14px;bottom:7%;display:flex;justify-content:center;pointer-events:none;}
+  .wm-nome{flex-direction:column;align-items:center;font-family:var(--serif);font-weight:700;line-height:.9;text-transform:uppercase;
+           font-size:38px;text-shadow:0 2px 14px rgba(0,0,0,.55);}
+  .wm-nome span:first-child{color:#fff;}
+  .wm-nome span:last-child{background:linear-gradient(180deg,#fbe7a6,#d9a937 55%,#a87a1c);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.12em;}
+  @keyframes rola{from{transform:translate3d(0,0,0);}to{transform:translate3d(-50%,0,0);}}
+  @media (max-width:720px){ .car-track figure{height:200px;padding-right:10px;} .wm{right:10px;} .wm-nome{font-size:25px;} .car-track{animation-duration:32s;} }
+  .ad-nota{font-size:.72rem;color:var(--dim);margin-top:8px;}
+
+  .btn{display:block;width:100%;text-align:center;background:var(--gold-grad);color:#1d1408;font-family:var(--sans);font-weight:600;font-size:1.05rem;letter-spacing:.02em;
+       text-decoration:none;padding:18px;border:0;border-radius:50px;cursor:pointer;box-shadow:0 8px 22px rgba(168,122,28,.28),inset 0 1px 0 rgba(255,255,255,.45);
+       transition:transform .15s,box-shadow .15s,opacity .2s;}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(168,122,28,.34),inset 0 1px 0 rgba(255,255,255,.45);}
+  .btn:disabled{opacity:.4;cursor:default;transform:none;box-shadow:none;}
+  .pulsa{animation:pulsa 2.2s ease-in-out infinite;}
+  @keyframes pulsa{0%,100%{transform:scale(1);}50%{transform:scale(1.025);}}
 
   /* pergunta */
-  .q h2{font-size:clamp(1.65rem,5.6vw,2.15rem);line-height:1.12;margin-bottom:8px;}
-  .q .hint{font-size:.9rem;color:var(--dim);margin-bottom:22px;}
+  .q h2{font-size:clamp(1.6rem,5.8vw,2.1rem);line-height:1.12;margin-bottom:6px;}
+  .q .hint{font-size:.9rem;color:var(--dim);margin-bottom:20px;}
   .opts{display:grid;gap:10px;}
-  .opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--bg2);border:1px solid var(--line);border-radius:12px;
-       color:var(--cream);font:inherit;font-size:1rem;padding:16px 18px;cursor:pointer;transition:border-color .15s,background .15s;}
-  .opt:hover{border-color:var(--gold-dk);}
-  .opt .ic{flex:none;width:22px;height:22px;border:1px solid var(--gold-dk);border-radius:50%;position:relative;}
-  .opt.sel{border-color:var(--gold);background:linear-gradient(160deg,rgba(201,161,74,.16),rgba(201,161,74,.04));}
-  .opt.sel .ic{background:var(--gold);border-color:var(--gold);}
-  .opt.sel .ic::after{content:"";position:absolute;left:7px;top:3px;width:6px;height:11px;border:solid #16110a;border-width:0 2px 2px 0;transform:rotate(45deg);}
-  .multi .opt .ic{border-radius:5px;}
-
-  .btn{display:block;width:100%;text-align:center;background:var(--gold);color:#16110a;font-family:var(--sans);font-weight:600;font-size:1.02rem;letter-spacing:.02em;
-       text-decoration:none;padding:18px;border:0;border-radius:4px;cursor:pointer;transition:background .2s,opacity .2s;}
-  .btn:hover{background:#d8b25d;}
-  .btn:disabled{opacity:.35;cursor:default;background:var(--gold);}
+  .opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:14px;
+       color:var(--ink);font:inherit;font-size:1rem;line-height:1.35;padding:15px 16px;cursor:pointer;box-shadow:0 2px 8px rgba(60,40,10,.04);
+       transition:border-color .15s,background .15s,transform .1s;}
+  .opt:hover{border-color:#d9c294;}
+  .opt:active{transform:scale(.99);}
+  .opt .ic{flex:none;width:30px;height:30px;border-radius:50%;background:var(--gold-soft);color:#8a6418;font-weight:600;font-size:.85rem;
+           display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s;}
+  .multi .opt .ic{border-radius:8px;}
+  .opt.sel{border-color:var(--gold);background:#fffaf0;}
+  .opt.sel .ic{background:var(--gold-grad);color:transparent;position:relative;}
+  .opt.sel .ic::after{content:"";position:absolute;left:11px;top:7px;width:7px;height:12px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
   .q .btn{margin-top:20px;}
 
   /* analisando */
-  .anal{text-align:center;padding-top:40px;}
-  .anal h2{font-size:1.9rem;margin-bottom:26px;}
-  .roda{width:64px;height:64px;margin:0 auto 30px;border:2px solid var(--line);border-top-color:var(--gold);border-radius:50%;animation:gira 1s linear infinite;}
+  .anal{text-align:center;padding-top:36px;}
+  .anal h2{font-size:1.85rem;margin-bottom:24px;}
+  .roda{width:64px;height:64px;margin:0 auto 28px;border:3px solid var(--line);border-top-color:var(--gold);border-radius:50%;animation:gira 1s linear infinite;}
   @keyframes gira{to{transform:rotate(360deg);}}
   .passos{list-style:none;max-width:340px;margin:0 auto;text-align:left;}
-  .passos li{padding:9px 0 9px 28px;position:relative;font-size:.95rem;color:var(--dim);opacity:.35;transition:opacity .3s,color .3s;}
-  .passos li.ok{opacity:1;color:var(--cream);}
-  .passos li::before{content:"";position:absolute;left:0;top:14px;width:14px;height:14px;border:1px solid var(--gold-dk);border-radius:50%;}
-  .passos li.ok::before{background:var(--gold);border-color:var(--gold);}
+  .passos li{padding:10px 0 10px 32px;position:relative;font-size:.96rem;color:var(--dim);opacity:.4;transition:opacity .3s,color .3s;}
+  .passos li.ok{opacity:1;color:var(--ink);}
+  .passos li::before{content:"";position:absolute;left:0;top:13px;width:20px;height:20px;border:1.5px solid #d9c294;border-radius:50%;}
+  .passos li.ok::before{background:var(--gold-grad);border-color:transparent;}
+  .passos li.ok::after{content:"";position:absolute;left:7px;top:17px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);}
 
   /* resultado */
-  .res{text-align:center;}
-  .res h2{font-size:clamp(1.9rem,6.5vw,2.5rem);line-height:1.08;margin-bottom:18px;}
-  .card{background:var(--bg2);border:1px solid var(--gold-dk);border-radius:14px;padding:24px 22px;text-align:left;margin:0 0 22px;}
-  .card .tag{display:inline-block;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px;}
-  .card h3{font-family:var(--serif);font-size:1.6rem;color:var(--cream);line-height:1.15;margin-bottom:10px;font-weight:600;}
+  .res{text-align:center;padding-top:6px;}
+  .res .pill{margin-bottom:12px;}
+  .res h2{font-size:clamp(1.9rem,6.6vw,2.5rem);line-height:1.08;margin-bottom:20px;}
+  .card{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:16px;padding:22px 20px;text-align:left;margin:0 0 22px;
+        box-shadow:0 10px 30px rgba(60,40,10,.07);}
+  .card .tag{display:inline-block;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;}
+  .card h3{font-size:1.5rem;line-height:1.15;margin-bottom:10px;}
   .card p{font-size:.96rem;margin-bottom:12px;}
   .card p:last-child{margin-bottom:0;}
-  .card ul{list-style:none;margin-top:6px;}
-  .card li{padding:8px 0 8px 22px;position:relative;font-size:.94rem;border-top:1px solid var(--line);}
-  .card li::before{content:"";position:absolute;left:0;top:18px;width:10px;height:1px;background:var(--gold);}
-  .res .cta-txt{margin:0 auto 18px;max-width:440px;}
+  .card ul{list-style:none;margin-top:4px;}
+  .card li{padding:9px 0 9px 26px;position:relative;font-size:.94rem;border-top:1px solid var(--line);}
+  .card li::before{content:"!";position:absolute;left:0;top:11px;width:17px;height:17px;border-radius:50%;background:var(--gold-soft);color:#8a6418;
+                   font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .dra{text-align:center;background:var(--gold-soft);border-radius:16px;padding:14px 16px;margin-bottom:18px;}
+  .dra p{font-size:.93rem;line-height:1.45;}
   .aviso{font-size:.74rem;color:var(--dim);margin-top:16px;line-height:1.5;}
 
-  footer{border-top:1px solid var(--line);padding:16px 20px;font-size:.72rem;color:var(--dim);text-align:center;line-height:1.55;}
-  footer a{color:var(--body);}
+  footer{padding:16px 20px 20px;font-size:.72rem;color:var(--dim);text-align:center;line-height:1.55;}
+  footer a{color:var(--dim);}
 
-  @media (max-width:420px){
-    body{font-size:16px;}
-    .opt{padding:15px 15px;font-size:.96rem;}
+  .hero-img{display:none;}
+  /* computador: sem banner; logo no topo e duas colunas (texto | antes e depois) */
+  @media (min-width:900px){
+    header{display:block;padding-bottom:10px;}
+    .capa{display:none;}
+    body:not(.dentro) main{max-width:1080px;}
+    .hero{display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:center;text-align:left;margin-top:28px;}
+    .hero .intro-c{margin-left:0;}
+    .hero .sub{margin-left:0 !important;}
+    .hero .btn{margin:0 !important;}
+    .hero .prova{align-items:flex-start;}
+    .hero-img{display:block;margin:0;border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 50px rgba(60,40,10,.14);}
+    .hero-img img{width:100%;height:auto;}
+    .intro .car{margin-top:56px;}
+    .intro .ad-nota{text-align:center;}
   }
+  @media (min-width:900px){
+    body{font-size:18px;}
+    main{max-width:700px;}
+    .intro h1{font-size:3rem;}
+    .intro .sub{max-width:560px;margin:14px auto 24px;font-size:1.08rem;}
+    .intro .btn{max-width:440px;margin:0 auto;}
+    header{padding-top:26px;}
+    .logo img{height:38px;}
+    .logo span{font-size:.95rem;}
+    .prog{margin:22px 0 32px;}
+    .q h2{font-size:2.4rem;}
+    .opt{padding:18px 20px;font-size:1.05rem;}
+    .card{padding:28px 30px;}
+    .res h2{font-size:2.7rem;}
+    .res .btn{max-width:440px;margin:0 auto;}
+  }
+  @media (max-width:420px){ body{font-size:16px;} .opt{font-size:.96rem;} }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="nav">
-    <img class="mono" src="img/r-ouro.png" alt="" />
-    <div class="mark"><span>ADEUS <i>MANCHAS</i></span></div>
-  </div>
+  <div class="logo"><img src="img/r-ouro.png" alt="" /><span>ADEUS <i>MANCHAS</i></span></div>
 </header>
 
 <main>
@@ -142,12 +199,30 @@
 
   <!-- ABERTURA -->
   <section class="tela on intro" id="t-intro">
-    <span class="eyebrow">Teste rápido · menos de 1 minuto</span>
-    <h1>Por que a sua mancha <span class="gold">sempre volta?</span></h1>
-    <p>Responda 7 perguntas e descubra <b>o que está por trás das suas manchas</b> e o caminho certo pra clarear em casa.</p>
-    <div class="foto"><img src="img/resultado-1.jpg" width="1200" height="1200" alt="Antes e depois do tratamento de manchas" /></div>
-    <button class="btn" id="comecar" type="button">Começar o teste</button>
-    <div class="selos"><span>✓ Gratuito</span><span>✓ 7 perguntas</span><span>✓ Resultado na hora</span></div>
+    <div class="capa"><picture><source media="(min-width:700px)" srcset="banner/banner-desktop-1380x500.png" width="1380" height="500" /><img src="banner/banner-mobile-1080x600.png" width="1080" height="600" alt="Adeus Manchas, com a Dra. Rosana Vecchi" fetchpriority="high" /></picture></div>
+    <div class="hero">
+      <div class="hero-txt">
+      <span class="pill">Teste gratuito · 1 minuto</span>
+      <h1>Descubra por que a sua mancha <span class="ouro">sempre volta</span></h1>
+      <p class="sub">Responda 6 perguntas rápidas e veja <b>o que está por trás das manchas no seu rosto</b> e o caminho certo pra clarear em casa.</p>
+      <button class="btn pulsa" id="comecar" type="button">Fazer o teste agora</button>
+      <div class="prova"><span class="estrelas">★★★★★</span><span>Mais de <b>10 mil mulheres</b> já fizeram o protocolo</span></div>
+      </div>
+      <figure class="hero-img"><img src="img/rosana-quiz.jpg" width="900" height="900" alt="Dra. Rosana Vecchi" /></figure>
+    </div>
+    <div class="car">
+    <div class="car-track">
+      <figure><img src="img/resultado-1.jpg" width="1200" height="1200" decoding="async" alt="Antes e depois do tratamento de manchas" /></figure>
+      <figure><img src="img/resultado-2.jpg" width="1200" height="1200" decoding="async" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-nome"><span>Adeus</span><span>Manchas</span></div></figure>
+      <figure><img src="img/resultado-3.jpg" width="1200" height="785" decoding="async" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-nome"><span>Adeus</span><span>Manchas</span></div></figure>
+      <figure><img src="img/resultado-4.jpg" width="1200" height="628" decoding="async" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-nome"><span>Adeus</span><span>Manchas</span></div></figure>
+      <figure aria-hidden="true"><img src="img/resultado-1.jpg" width="1200" height="1200" decoding="async" alt="Antes e depois do tratamento de manchas" /></figure>
+      <figure aria-hidden="true"><img src="img/resultado-2.jpg" width="1200" height="1200" decoding="async" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-nome"><span>Adeus</span><span>Manchas</span></div></figure>
+      <figure aria-hidden="true"><img src="img/resultado-3.jpg" width="1200" height="785" decoding="async" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-nome"><span>Adeus</span><span>Manchas</span></div></figure>
+      <figure aria-hidden="true"><img src="img/resultado-4.jpg" width="1200" height="628" decoding="async" alt="Antes e depois do tratamento de manchas" /><div class="wm wm-nome"><span>Adeus</span><span>Manchas</span></div></figure>
+    </div>
+    </div>
+    <p class="ad-nota">Resultados reais de alunas. Os resultados variam de pessoa para pessoa.</p>
   </section>
 
   <!-- PERGUNTAS (montadas pelo script) -->
@@ -166,11 +241,13 @@
 
   <!-- RESULTADO -->
   <section class="tela res" id="t-res">
-    <span class="eyebrow">Seu resultado</span>
+    <span class="pill">Seu resultado</span>
     <h2 id="r-titulo"></h2>
     <div class="card" id="r-card"></div>
-    <p class="cta-txt" id="r-cta-txt">A Dra. Rosana preparou uma <b>aula gratuita</b> explicando por que a mancha volta todo verão e o protocolo pra clarear em casa, com 5 minutos por dia.</p>
-    <a class="btn" id="r-btn" href="index.html">Assistir à aula gratuita</a>
+    <div class="dra">
+      <p>A <b>Dra. Rosana Vecchi</b> gravou uma <b>aula gratuita</b> explicando por que a mancha volta todo verão e o protocolo pra clarear em casa, em 5 minutos por dia.</p>
+    </div>
+    <a class="btn pulsa" id="r-btn" href="index.html">Assistir à aula gratuita</a>
     <p class="aviso">Este teste é educativo e não faz diagnóstico. Se uma mancha mudou de cor, tamanho ou formato, procure um médico presencialmente.</p>
   </section>
 </main>
@@ -187,16 +264,16 @@
 
   // tipo de mancha: m = melasma, s = mancha de sol, a = marca de acne/inflamação
   var PERGUNTAS = [
-    { id:'local', t:'Onde ficam as suas manchas?', h:'Pode marcar mais de uma.', multi:true, o:[
+    { id:'local', t:'Em que parte do rosto ficam as suas manchas?', h:'Pode marcar mais de uma.', multi:true, o:[
       ['Maçãs do rosto e nariz', {m:2}],
-      ['Testa ou buço', {m:2}],
-      ['Onde eu tive espinhas', {a:3}],
-      ['Mãos, colo ou braços', {s:3}],
-      ['Espalhadas pelo rosto', {s:1,m:1}]
+      ['Testa', {m:2}],
+      ['Buço', {m:3}],
+      ['Queixo ou mandíbula, onde tive espinhas', {a:3}],
+      ['Pontinhos espalhados pelo rosto', {s:3}]
     ]},
     { id:'aspecto', t:'Como elas são?', o:[
       ['Manchas grandes, como um "mapa", dos dois lados do rosto', {m:3}],
-      ['Pontinhos ou bolinhas marrons', {s:3}],
+      ['Pontinhos ou manchinhas marrons, como sardas', {s:3}],
       ['Manchinhas no lugar de espinhas ou machucados', {a:3}],
       ['Não sei dizer', {}]
     ]},
@@ -225,21 +302,17 @@
       ['30 a 44 anos', {m:1}],
       ['45 a 59 anos', {s:1}],
       ['60 anos ou mais', {s:2}]
-    ]},
-    { id:'gestante', t:'Você está grávida ou amamentando?', o:[
-      ['Não', {}],
-      ['Sim', {}]
     ]}
   ];
 
   var RESULTADOS = {
-    m: { titulo:'Seu padrão é parecido com o <span class="gold">melasma</span>', nome:'Padrão melasma',
+    m: { titulo:'Seu padrão é parecido com o <span class="ouro">melasma</span>', nome:'Padrão melasma',
          txt:'Manchas no centro do rosto que escurecem com sol, calor e hormônios, e que voltam mesmo depois de clarear. É o tipo que mais frustra, porque responde a <b>tudo</b>: luz, temperatura e inflamação.',
          itens:['Clarear sem acalmar a pele faz a mancha voltar mais forte','Protetor comum não basta: calor e luz visível também escurecem','O segredo está na manutenção, não só no clareamento'] },
-    s: { titulo:'Seu padrão é parecido com <span class="gold">manchas de sol</span>', nome:'Padrão mancha solar',
-         txt:'Manchas que surgem com anos de exposição ao sol, principalmente no rosto, nas mãos e no colo. A boa notícia: costumam responder bem quando a rotina está certa.',
+    s: { titulo:'Seu padrão é parecido com <span class="ouro">manchas de sol</span>', nome:'Padrão mancha solar',
+         txt:'Pontinhos e manchas que surgem no rosto com anos de exposição ao sol, mesmo aquele sol do dia a dia. A boa notícia: costumam responder bem quando a rotina está certa.',
          itens:['O sol acumulado ao longo dos anos continua agindo','A ordem e a combinação dos ativos fazem toda a diferença','Sem proteção diária, qualquer clareamento é perdido'] },
-    a: { titulo:'Seu padrão é parecido com <span class="gold">marcas de acne</span>', nome:'Padrão pós-inflamatório',
+    a: { titulo:'Seu padrão é parecido com <span class="ouro">marcas de acne</span>', nome:'Padrão pós-inflamatório',
          txt:'Manchas que ficam no lugar de espinhas ou machucados. Elas nascem da inflamação, então tratar só a mancha sem cuidar da pele faz o ciclo continuar.',
          itens:['Ácido forte demais inflama e escurece ainda mais','Reconstruir a barreira da pele vem antes de clarear','Com a rotina certa, essas marcas clareiam mais rápido'] }
   };
@@ -260,6 +333,7 @@
     document.querySelectorAll('.tela').forEach(function(t){ t.classList.remove('on'); });
     $(id).classList.add('on');
     $('prog').classList.toggle('on', id === 't-q');
+    document.body.classList.toggle('dentro', id !== 't-intro');
     window.scrollTo(0, 0);
   }
 
@@ -271,7 +345,7 @@
     q.className = 'tela q on' + (p.multi ? ' multi' : '');
     q.innerHTML = '<h2>' + p.t + '</h2>' + (p.h ? '<p class="hint">' + p.h + '</p>' : '<p class="hint">Escolha uma opção.</p>') +
       '<div class="opts">' + p.o.map(function(o, i){
-        return '<button type="button" class="opt' + (sel.indexOf(i) > -1 ? ' sel' : '') + '" data-i="' + i + '"><span class="ic"></span>' + o[0] + '</button>';
+        return '<button type="button" class="opt' + (sel.indexOf(i) > -1 ? ' sel' : '') + '" data-i="' + i + '"><span class="ic">' + 'ABCDE'[i] + '</span>' + o[0] + '</button>';
       }).join('') + '</div>' +
       (p.multi ? '<button type="button" class="btn" id="seguir"' + (sel.length ? '' : ' disabled') + '>Continuar</button>' : '');
 
@@ -336,18 +410,16 @@
 
   function resultado(){
     var tipo = calcula(), r = RESULTADOS[tipo];
-    var gestante = (respostas.gestante || [])[0] === 1;
     $('r-titulo').innerHTML = r.titulo;
     $('r-card').innerHTML = '<span class="tag">' + r.nome + '</span><h3>Por que a sua mancha não vai embora</h3><p>' + r.txt + '</p><ul>' +
-      r.itens.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul>' +
-      (gestante ? '<p style="margin-top:14px;color:var(--gold)">Importante: o protocolo não é indicado durante a gravidez e a amamentação. Assista à aula pra entender sua mancha e comece depois desse período.</p>' : '');
+      r.itens.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul>';
 
     // leva os UTMs da URL + o resultado do quiz pra página da aula
     var qs = location.search.replace(/^\?/, '');
     qs = (qs ? qs + '&' : '') + 'quiz=' + tipo;
     $('r-btn').href = DESTINO + (DESTINO.indexOf('?') > -1 ? '&' : '?') + qs;
 
-    evento('QuizResultado', { tipo: tipo, gestante: gestante });
+    evento('QuizResultado', { tipo: tipo });
     mostra('t-res');
   }
 
